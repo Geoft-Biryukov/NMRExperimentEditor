@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NMRExperimentEditor.Model
 {
-    class ExperimentTable
+    public class ExperimentTable : ICloneable
     {
         /// <summary>
         /// 1. Номер эксперимента (Nr)
@@ -19,23 +19,27 @@ namespace NMRExperimentEditor.Model
         /// </summary>
         public ulong FrequencyIndex { get; set; }
 
+        internal void SetFrequency(uint value)
+            => FrequencyIndex = (FrequencyIndex & 0x00000000) | value;        
+
         /// <summary>
         /// Вычисляет слово частоты
         /// Из документации: ([31:0] - слово частоты)
         /// </summary>
         public uint FrequencyWord
-        {
-            get => (uint)(FrequencyIndex & 0xFFFFFFFF);            
-        }
+         => (uint)(FrequencyIndex & 0xFFFFFFFF);            
+        
 
         /// <summary>
         /// Вычисляет фазу
         /// Из Документации: [36:32] - фаза, [37:39] - служебные биты - равны нулю
         /// </summary>
         public byte Phase
-        {
-            get => (byte)((FrequencyIndex >> 32) & 0xFF);            
-        }
+        => (byte)((FrequencyIndex >> 32) & 0xFF);            
+       
+        public void  SetPhase(byte value)        
+            => FrequencyIndex = ((ulong)value << 32) | (FrequencyIndex & 0x00FFFFFFFF);
+        
                 
         /// <summary>
         /// 3. Состояние реле
@@ -61,7 +65,7 @@ namespace NMRExperimentEditor.Model
         /// до начала A-импульса) (S1)
         /// </summary>
         public byte Silence1 { get; set; }
-
+       
         /// <summary>
         /// 5. Длина шума (после замера шума также
         ///  выдерживается задержка S1) (Ln)
@@ -265,6 +269,33 @@ namespace NMRExperimentEditor.Model
         {
             upper = (byte)((word >> 12) & 0x000F);
             lower = (ushort)(word & 0x0FFF);
+        }
+
+        public object Clone()
+        {
+            return new ExperimentTable
+            {
+                ExperimentNumber = ExperimentNumber,
+                FrequencyIndex = FrequencyIndex,
+                StausOfRelay = StausOfRelay,
+                Silence1 = Silence1,
+                NoiseLength = NoiseLength,
+                CalibrationsNumber = CalibrationsNumber,
+                Silence2 = Silence2,
+                PhaseOfAPulse = PhaseOfAPulse,
+                APulseStart = APulseStart,
+                APulseContinue = APulseContinue,
+                SilenceA = SilenceA,
+                BPulsePhase = BPulsePhase,
+                BPulseContinue = BPulseContinue,
+                SilenceB = SilenceB,
+                RepeatB = RepeatB,
+                EchoLength = EchoLength,
+                RepeatExp = RepeatExp,
+                DelayExp = DelayExp,
+                DelayRecord = DelayRecord,
+                AdditionalWord = AdditionalWord
+            };
         }
         #endregion
     }

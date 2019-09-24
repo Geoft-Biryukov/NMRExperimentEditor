@@ -3,13 +3,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NMRExperimentEditor.Model;
 
 namespace NMRExperimentEditorTest
-{
+{   
     [TestClass]
     public class HelpersTests
     {
         [TestMethod]
         public void HelpersTestsGetFrequencyByFrequencyIndex()
-        {
+        { 
             uint index1 = 0x01810625;
             double f1 = 470.0 / 1000; // (МГц)
 

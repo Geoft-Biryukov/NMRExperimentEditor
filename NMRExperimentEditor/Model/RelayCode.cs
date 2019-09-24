@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NMRExperimentEditor.Model
 {
     [Flags]
-    enum RelayStatus : byte
+    public enum RelayStatus : byte
     {
         Empty = 0,
         Relay1 = 1 << 0,

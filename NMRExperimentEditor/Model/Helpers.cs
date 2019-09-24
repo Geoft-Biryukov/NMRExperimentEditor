@@ -39,16 +39,16 @@ namespace NMRExperimentEditor.Model
 
         private static bool IsBitSet(byte b, int flag) => (b & flag) != 0;
 
-        public static double GetFrequencyByFrequencyIndex(uint index, double SysClk)
+        public static double GetFrequencyByFrequencyIndex(uint index, double sysClk)
         {
             ulong divider = (ulong)1 << 32;
-            return index * SysClk / divider;
+            return index * sysClk / divider;
         }
 
-        public static uint GetFrequencyIndexByFrequency(double frequency, double SysClk)
+        public static uint GetFrequencyIndexByFrequency(double frequency, double sysClk)
         {
             ulong multipler = (ulong)1 << 32;
-            return (uint)(frequency * multipler / SysClk);
+            return (uint)(frequency * multipler / sysClk);
         }
     }
 }

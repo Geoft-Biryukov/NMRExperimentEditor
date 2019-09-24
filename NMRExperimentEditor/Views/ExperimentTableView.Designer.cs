@@ -28,149 +28,167 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.experimentNumber = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.freqency = new System.Windows.Forms.NumericUpDown();
-            this.frequencyCode = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.frequencyView1 = new NMRExperimentEditor.Views.FrequencyView();
             this.relaysView1 = new NMRExperimentEditor.Views.RelaysView();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.silence1 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.noiseLength = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.calibrationsNumber = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.silence2 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.freqency)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frequencyCode)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.silence1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiseLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calibrationsNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.silence2)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // experimentNumber
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.28496F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.71504F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.experimentNumber, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.freqency, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.frequencyCode, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.relaysView1, 1, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(768, 134);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.experimentNumber.Dock = System.Windows.Forms.DockStyle.Left;
+            this.experimentNumber.Location = new System.Drawing.Point(3, 16);
+            this.experimentNumber.Name = "experimentNumber";
+            this.experimentNumber.Size = new System.Drawing.Size(145, 20);
+            this.experimentNumber.TabIndex = 1;
+            // 
+            // frequencyView1
+            // 
+            this.frequencyView1.Frequency = 0D;
+            this.frequencyView1.FrequencyIndex = ((uint)(0u));
+            this.frequencyView1.Location = new System.Drawing.Point(3, 59);
+            this.frequencyView1.Name = "frequencyView1";
+            this.frequencyView1.Phase = ((byte)(0));
+            this.frequencyView1.Size = new System.Drawing.Size(293, 74);
+            this.frequencyView1.SynthesizerFrequency = 0D;
+            this.frequencyView1.TabIndex = 2;
+            // 
+            // relaysView1
+            // 
+            this.relaysView1.Location = new System.Drawing.Point(6, 139);
+            this.relaysView1.Name = "relaysView1";
+            this.relaysView1.Size = new System.Drawing.Size(388, 46);
+            this.relaysView1.TabIndex = 8;
+            this.relaysView1.Load += new System.EventHandler(this.relaysView1_Load);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.experimentNumber);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(246, 50);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Номер эксперимента";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(6, 192);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Номер эксперимента";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Тишина 1";
             // 
-            // experimentNumber
+            // silence1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.experimentNumber, 2);
-            this.experimentNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.experimentNumber.Location = new System.Drawing.Point(277, 3);
-            this.experimentNumber.Name = "experimentNumber";
-            this.experimentNumber.Size = new System.Drawing.Size(488, 20);
-            this.experimentNumber.TabIndex = 1;
+            this.silence1.Location = new System.Drawing.Point(274, 192);
+            this.silence1.Name = "silence1";
+            this.silence1.Size = new System.Drawing.Size(120, 20);
+            this.silence1.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 24);
+            this.label2.Location = new System.Drawing.Point(9, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(268, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Частота, Гц";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Длина шума:";
             // 
-            // freqency
+            // noiseLength
             // 
-            this.freqency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.freqency.Location = new System.Drawing.Point(277, 27);
-            this.freqency.Name = "freqency";
-            this.freqency.Size = new System.Drawing.Size(288, 20);
-            this.freqency.TabIndex = 3;
-            // 
-            // frequencyCode
-            // 
-            this.frequencyCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.frequencyCode.Location = new System.Drawing.Point(571, 27);
-            this.frequencyCode.Name = "frequencyCode";
-            this.frequencyCode.Size = new System.Drawing.Size(194, 20);
-            this.frequencyCode.TabIndex = 4;
+            this.noiseLength.Location = new System.Drawing.Point(274, 221);
+            this.noiseLength.Name = "noiseLength";
+            this.noiseLength.Size = new System.Drawing.Size(120, 20);
+            this.noiseLength.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 48);
+            this.label3.Location = new System.Drawing.Point(9, 258);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(268, 54);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Реле";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Size = new System.Drawing.Size(136, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Калибровочных выборок:";
+            // 
+            // calibrationsNumber
+            // 
+            this.calibrationsNumber.Location = new System.Drawing.Point(274, 256);
+            this.calibrationsNumber.Name = "calibrationsNumber";
+            this.calibrationsNumber.Size = new System.Drawing.Size(120, 20);
+            this.calibrationsNumber.TabIndex = 15;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 102);
+            this.label4.Location = new System.Drawing.Point(12, 286);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(268, 32);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Код реле";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Тишина 2:";
             // 
-            // relaysView1
+            // silence2
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.relaysView1, 2);
-            this.relaysView1.Location = new System.Drawing.Point(277, 51);
-            this.relaysView1.Name = "relaysView1";
-            this.relaysView1.Size = new System.Drawing.Size(488, 46);
-            this.relaysView1.TabIndex = 8;
+            this.silence2.Location = new System.Drawing.Point(274, 286);
+            this.silence2.Name = "silence2";
+            this.silence2.Size = new System.Drawing.Size(120, 20);
+            this.silence2.TabIndex = 17;
             // 
             // ExperimentTableView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.silence2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.calibrationsNumber);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.noiseLength);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.silence1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.frequencyView1);
+            this.Controls.Add(this.relaysView1);
             this.Name = "ExperimentTableView";
-            this.Size = new System.Drawing.Size(768, 207);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.Size = new System.Drawing.Size(668, 492);
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.freqency)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frequencyCode)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.silence1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiseLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calibrationsNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.silence2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown experimentNumber;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown freqency;
-        private System.Windows.Forms.NumericUpDown frequencyCode;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private RelaysView relaysView1;
+        private FrequencyView frequencyView1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown silence1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown noiseLength;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown calibrationsNumber;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown silence2;
     }
 }

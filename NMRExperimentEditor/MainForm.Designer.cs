@@ -28,73 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.experimentsTabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.experimentsTabControl.SuspendLayout();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // addButton
             // 
-            this.button1.Location = new System.Drawing.Point(13, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addButton.Location = new System.Drawing.Point(0, 12);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // experimentsTabControl
             // 
-            this.experimentsTabControl.Controls.Add(this.tabPage1);
-            this.experimentsTabControl.Controls.Add(this.tabPage2);
-            this.experimentsTabControl.Location = new System.Drawing.Point(13, 33);
+            this.experimentsTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.experimentsTabControl.Location = new System.Drawing.Point(0, 54);
             this.experimentsTabControl.Name = "experimentsTabControl";
             this.experimentsTabControl.SelectedIndex = 0;
-            this.experimentsTabControl.Size = new System.Drawing.Size(775, 405);
+            this.experimentsTabControl.Size = new System.Drawing.Size(800, 444);
             this.experimentsTabControl.TabIndex = 1;
             // 
-            // tabPage1
+            // deleteButton
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(767, 379);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.deleteButton.Location = new System.Drawing.Point(81, 12);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 2;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.experimentsTabControl);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addButton);
+            this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.experimentsTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TabControl experimentsTabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 
