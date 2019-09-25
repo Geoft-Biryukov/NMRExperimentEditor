@@ -16,13 +16,12 @@ namespace NMRExperimentEditor.ViewModels
     /// </summary>
     internal class ExperimentTableViewModel : INotifyPropertyChanged, INotifyDataErrorInfo
     {
-        private readonly ExperimentTable table;
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
         public ExperimentTableViewModel(ExperimentTable table)
         {
-            this.table = table ?? throw new ArgumentNullException(nameof(table));          
+            Experimenent = table ?? throw new ArgumentNullException(nameof(table));          
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -37,20 +36,14 @@ namespace NMRExperimentEditor.ViewModels
         [Range(0, 5, ErrorMessage = "Bed")]        
         public decimal ExperimentNumber
         {
-            get => table.ExperimentNumber;
+            get => Experimenent.ExperimentNumber;
         
             set
             {
-                if ((ushort)value == table.ExperimentNumber)
-                    return;
+                if ((ushort)value == Experimenent.ExperimentNumber)
+                    return;               
 
-                if (value > 5)
-                {
-                    ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(nameof(ExperimentNumber)));
-                    return;
-                }
-
-                table.ExperimentNumber = (ushort)value;
+                Experimenent.ExperimentNumber = (ushort)value;
                 OnPropertyChanged(nameof(ExperimentNumber));
             }
         }
@@ -58,13 +51,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Код частоты")]
         public decimal FrequencyIndex
         {
-            get => table.FrequencyWord;
+            get => Experimenent.FrequencyWord;
             set
             {
-                if ((uint)value == table.FrequencyWord)
+                if ((uint)value == Experimenent.FrequencyWord)
                     return;
 
-                table.SetFrequency((uint)value);
+                Experimenent.SetFrequency((uint)value);
                 OnPropertyChanged(nameof(FrequencyIndex));
             }
         }
@@ -72,13 +65,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Фаза")]
         public decimal Phase
         {
-            get => table.Phase;
+            get => Experimenent.Phase;
             set
             {
-                if ((uint)value == table.Phase)
+                if ((uint)value == Experimenent.Phase)
                     return;
 
-                table.SetPhase((byte)value);
+                Experimenent.SetPhase((byte)value);
                 OnPropertyChanged(nameof(Phase));
             }
         }
@@ -86,13 +79,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Код реле")]
         public decimal RelayCode
         {
-            get => table.GetRelayCode();
+            get => Experimenent.GetRelayCode();
             set
             {
-                if ((byte)value == table.GetRelayCode())
+                if ((byte)value == Experimenent.GetRelayCode())
                     return;
 
-                table.SetRelayCode((byte)value);
+                Experimenent.SetRelayCode((byte)value);
                 OnPropertyChanged(nameof(RelayCode));
             }
         }
@@ -100,13 +93,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Тишина 1")]
         public decimal Silence1
         {
-            get => table.Silence1;
+            get => Experimenent.Silence1;
             set
             {
-                if ((byte)value == table.Silence1)
+                if ((byte)value == Experimenent.Silence1)
                     return;
 
-                table.Silence1 = (byte)value;
+                Experimenent.Silence1 = (byte)value;
                 OnPropertyChanged(nameof(Silence1));
             }
         }
@@ -114,13 +107,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Длина шума")]
         public decimal NoiseLength
         {
-            get => table.NoiseLength;
+            get => Experimenent.NoiseLength;
             set
             {
-                if ((byte)value == table.NoiseLength)
+                if ((byte)value == Experimenent.NoiseLength)
                     return;
 
-                table.NoiseLength = (byte)value;
+                Experimenent.NoiseLength = (byte)value;
                 OnPropertyChanged(nameof(NoiseLength));
             }
         }
@@ -128,13 +121,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Число калибровочных выборок")]
         public decimal CalibrationsNumber
         {
-            get => table.CalibrationsNumber;
+            get => Experimenent.CalibrationsNumber;
             set
             {
-                if ((byte)value == table.CalibrationsNumber)
+                if ((byte)value == Experimenent.CalibrationsNumber)
                     return;
 
-                table.CalibrationsNumber = (byte)value;
+                Experimenent.CalibrationsNumber = (byte)value;
                 OnPropertyChanged(nameof(CalibrationsNumber));
             }
         }
@@ -142,13 +135,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Тишина 2")]
         public decimal Silence2
         {
-            get => table.Silence2;
+            get => Experimenent.Silence2;
             set
             {
-                if ((byte)value == table.Silence2)
+                if ((byte)value == Experimenent.Silence2)
                     return;
 
-                table.Silence2 = (byte)value;
+                Experimenent.Silence2 = (byte)value;
                 OnPropertyChanged(nameof(Silence2));
             }
         }
@@ -156,13 +149,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Фаза А-импульса")]        
         public decimal PhaseOfAPulse
         {
-            get => table.PhaseOfAPulse;
+            get => Experimenent.PhaseOfAPulse;
             set
             {
-                if ((byte)value == table.PhaseOfAPulse)
+                if ((byte)value == Experimenent.PhaseOfAPulse)
                     return;
 
-                table.PhaseOfAPulse = (byte)value;
+                Experimenent.PhaseOfAPulse = (byte)value;
                 OnPropertyChanged(nameof(PhaseOfAPulse));
             }
         }
@@ -170,13 +163,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Начало А")]
         public decimal APulseStart
         {
-            get => table.APulseStart;
+            get => Experimenent.APulseStart;
             set
             {
-                if ((byte)value == table.APulseStart)
+                if ((byte)value == Experimenent.APulseStart)
                     return;
 
-                table.Silence1 = (byte)value;
+                Experimenent.Silence1 = (byte)value;
                 OnPropertyChanged(nameof(APulseStart));
             }
         }
@@ -184,13 +177,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Продолжение А")]        
         public decimal APulseContinue
         {
-            get => table.APulseContinue;
+            get => Experimenent.APulseContinue;
             set
             {
-                if ((byte)value == table.APulseContinue)
+                if ((byte)value == Experimenent.APulseContinue)
                     return;
 
-                table.APulseContinue = (byte)value;
+                Experimenent.APulseContinue = (byte)value;
                 OnPropertyChanged(nameof(APulseContinue));
             }
         }
@@ -198,13 +191,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Тишина А")]        
         public decimal SilenceA
         {
-            get => table.SilenceA;
+            get => Experimenent.SilenceA;
             set
             {
-                if ((ushort)value == table.SilenceA)
+                if ((ushort)value == Experimenent.SilenceA)
                     return;
 
-                table.SilenceA = (ushort)value;
+                Experimenent.SilenceA = (ushort)value;
                 OnPropertyChanged(nameof(SilenceA));
             }
         }
@@ -212,13 +205,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Фаза B-импульса")]        
         public decimal BPulsePhase
         {
-            get => table.BPulsePhase;
+            get => Experimenent.BPulsePhase;
             set
             {
-                if ((byte)value == table.BPulsePhase)
+                if ((byte)value == Experimenent.BPulsePhase)
                     return;
 
-                table.BPulsePhase = (byte)value;
+                Experimenent.BPulsePhase = (byte)value;
                 OnPropertyChanged(nameof(BPulsePhase));
             }
         }
@@ -226,13 +219,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Продолжение")]
         public decimal BPulseContinue
         {
-            get => table.BPulseContinue;
+            get => Experimenent.BPulseContinue;
             set
             {
-                if ((ushort)value == table.BPulseContinue)
+                if ((ushort)value == Experimenent.BPulseContinue)
                     return;
 
-                table.BPulseContinue = (ushort)value;
+                Experimenent.BPulseContinue = (ushort)value;
                 OnPropertyChanged(nameof(BPulseContinue));
             }
         }
@@ -240,13 +233,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Тишина В")]        
         public decimal SilenceB
         {
-            get => table.SilenceB;
+            get => Experimenent.SilenceB;
             set
             {
-                if ((ushort)value == table.SilenceB)
+                if ((ushort)value == Experimenent.SilenceB)
                     return;
 
-                table.SilenceB = (ushort)value;
+                Experimenent.SilenceB = (ushort)value;
                 OnPropertyChanged(nameof(SilenceB));
             }
         }
@@ -254,13 +247,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Количество повторений В-импульса")]         
         public decimal RepeatB
         {
-            get => table.RepeatB;
+            get => Experimenent.RepeatB;
             set
             {
-                if ((ushort)value == table.RepeatB)
+                if ((ushort)value == Experimenent.RepeatB)
                     return;
 
-                table.RepeatB = (ushort)value;
+                Experimenent.RepeatB = (ushort)value;
                 OnPropertyChanged(nameof(RepeatB));
             }
         }
@@ -268,13 +261,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Длина эхо")]        
         public decimal EchoLength
         {
-            get => table.EchoLength;
+            get => Experimenent.EchoLength;
             set
             {
-                if ((byte)value == table.EchoLength)
+                if ((byte)value == Experimenent.EchoLength)
                     return;
 
-                table.EchoLength = (byte)value;
+                Experimenent.EchoLength = (byte)value;
                 OnPropertyChanged(nameof(EchoLength));
             }
         }
@@ -282,13 +275,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Количество повторений экспериментов")]        
         public decimal RepeatExp
         {
-            get => table.RepeatExp;
+            get => Experimenent.RepeatExp;
             set
             {
-                if ((byte)value == table.RepeatExp)
+                if ((byte)value == Experimenent.RepeatExp)
                     return;
 
-                table.RepeatExp = (byte)value;
+                Experimenent.RepeatExp = (byte)value;
                 OnPropertyChanged(nameof(RepeatExp));
             }
         }
@@ -296,13 +289,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName(".Задержка между повторяющимися экспериментами")]        
         public decimal DelayExp
         {
-            get => table.DelayExp;
+            get => Experimenent.DelayExp;
             set
             {
-                if ((ushort)value == table.DelayExp)
+                if ((ushort)value == Experimenent.DelayExp)
                     return;
 
-                table.DelayExp = (ushort)value;
+                Experimenent.DelayExp = (ushort)value;
                 OnPropertyChanged(nameof(DelayExp));
             }
         }
@@ -310,13 +303,13 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Задержка после завершения цикла одной записи")]        
         public decimal DelayRecord
         {
-            get => table.DelayRecord;
+            get => Experimenent.DelayRecord;
             set
             {
-                if ((ushort)value == table.DelayRecord)
+                if ((ushort)value == Experimenent.DelayRecord)
                     return;
 
-                table.DelayRecord = (ushort)value;
+                Experimenent.DelayRecord = (ushort)value;
                 OnPropertyChanged(nameof(DelayRecord));
             }
         }
@@ -324,17 +317,24 @@ namespace NMRExperimentEditor.ViewModels
         [DisplayName("Вспомогательное слово")]
         public decimal AdditionalWord
         {
-            get => table.AdditionalWord;
+            get => Experimenent.AdditionalWord;
             set
             {
-                if ((ushort)value == table.AdditionalWord)
+                if ((ushort)value == Experimenent.AdditionalWord)
                     return;
 
-                table.AdditionalWord = (ushort)value;
+                Experimenent.AdditionalWord = (ushort)value;
                 OnPropertyChanged(nameof(AdditionalWord));
             }
         }
 
         public bool HasErrors => throw new NotImplementedException();
+
+        public ExperimentTable Experimenent { get; }
+
+        public override string ToString()
+        {
+            return $"Эксперимент {ExperimentNumber}";
+        }
     }
 }

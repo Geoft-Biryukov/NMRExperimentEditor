@@ -28,5 +28,10 @@ namespace NMRExperimentEditor.Views
             var viewModel = new ViewModels.ExperimentTableViewModel(table);
             experimentTableBidingSource.DataSource = viewModel;                                   
         }        
+
+        internal void BindViewModel(ViewModels.ExperimentTableViewModel viewModel)
+        {
+            experimentTableBidingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
+        }
     }
 }
