@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.experimentsListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,30 +46,24 @@
             this.downToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.экспортТаблицыЭкспериментовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.experimentTableSimpleView1 = new NMRExperimentEditor.Views.ExperimentTableSimpleView();
-            this.panel1.SuspendLayout();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.experimentsListBox);
-            this.panel1.Controls.Add(this.experimentTableSimpleView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(3);
-            this.panel1.Size = new System.Drawing.Size(583, 611);
-            this.panel1.TabIndex = 3;
             // 
             // experimentsListBox
             // 
-            this.experimentsListBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.experimentsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.experimentsListBox.FormattingEnabled = true;
-            this.experimentsListBox.Location = new System.Drawing.Point(387, 3);
+            this.experimentsListBox.Location = new System.Drawing.Point(0, 0);
             this.experimentsListBox.Name = "experimentsListBox";
-            this.experimentsListBox.Size = new System.Drawing.Size(193, 605);
+            this.experimentsListBox.Size = new System.Drawing.Size(181, 605);
             this.experimentsListBox.TabIndex = 2;
             this.experimentsListBox.SelectedIndexChanged += new System.EventHandler(this.experimentsListBox_SelectedIndexChanged);
             // 
@@ -81,7 +74,7 @@
             this.инструментыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(583, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(574, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -146,7 +139,7 @@
             this.downToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(583, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(574, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -200,16 +193,43 @@
             // 
             this.experimentTableSimpleView1.AutoScroll = true;
             this.experimentTableSimpleView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.experimentTableSimpleView1.Location = new System.Drawing.Point(3, 3);
+            this.experimentTableSimpleView1.Location = new System.Drawing.Point(0, 0);
             this.experimentTableSimpleView1.Name = "experimentTableSimpleView1";
-            this.experimentTableSimpleView1.Size = new System.Drawing.Size(577, 605);
+            this.experimentTableSimpleView1.Size = new System.Drawing.Size(383, 605);
             this.experimentTableSimpleView1.TabIndex = 1;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.experimentTableSimpleView1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.experimentsListBox);
+            this.splitContainer1.Size = new System.Drawing.Size(568, 605);
+            this.splitContainer1.SplitterDistance = 383;
+            this.splitContainer1.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.splitContainer1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 49);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(3);
+            this.panel1.Size = new System.Drawing.Size(574, 611);
+            this.panel1.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 660);
+            this.ClientSize = new System.Drawing.Size(574, 660);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -218,18 +238,21 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Редактор экспериментов КарСар ЯК";
-            this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
         private Views.ExperimentTableSimpleView experimentTableSimpleView1;
         private System.Windows.Forms.ListBox experimentsListBox;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -247,6 +270,8 @@
         private System.Windows.Forms.ToolStripButton upToolStripButton;
         private System.Windows.Forms.ToolStripButton downToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem экспортТаблицыЭкспериментовToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

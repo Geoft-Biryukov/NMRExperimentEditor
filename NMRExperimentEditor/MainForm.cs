@@ -41,6 +41,8 @@ namespace NMRExperimentEditor
             experimentTableSimpleView1.BindViewModel(viewModel);
 
             experiments.Add(viewModel);
+
+            experimentsListBox.SelectedItem = viewModel;
         }
       
 

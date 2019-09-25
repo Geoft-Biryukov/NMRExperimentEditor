@@ -14,10 +14,9 @@ namespace NMRExperimentEditor.ViewModels
     /// Класс-обертка над ExperimentTable, предоставляющий
     /// связь с GUI
     /// </summary>
-    internal class ExperimentTableViewModel : INotifyPropertyChanged, INotifyDataErrorInfo
+    internal class ExperimentTableViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+        public event PropertyChangedEventHandler PropertyChanged;        
 
         public ExperimentTableViewModel(ExperimentTable table)
         {
@@ -327,8 +326,19 @@ namespace NMRExperimentEditor.ViewModels
                 OnPropertyChanged(nameof(AdditionalWord));
             }
         }
+        
+        public bool IsLast
+        {
+            get => Experimenent.IsLast;
+            set
+            {
+                if (value == Experimenent.IsLast)
+                    return;
 
-        public bool HasErrors => throw new NotImplementedException();
+                Experimenent.IsLast = value;
+                OnPropertyChanged(nameof(IsLast));
+            }
+        }
 
         public ExperimentTable Experimenent { get; }
 

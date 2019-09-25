@@ -151,12 +151,21 @@ namespace NMRExperimentEditor.Model
         /// </summary>
         public ushort AdditionalWord { get; set; }
 
+        /// <summary>
+        /// 21. Последний эксперимент
+        /// </summary>
+        /// <returns></returns>
+        public bool IsLast { get; set; }
+
         #region Get array
         public ushort[] GetArray()
         {
             var words = new ushort[15];
 
-            words[0] = ExperimentNumber;
+            if (IsLast)
+                words[0] = (ushort)(ExperimentNumber & (1 << 15));
+            else
+                words[0] = ExperimentNumber;
 
             var freqAndRel = GetFrequencyAndRelay(FrequencyIndex, GetRelayCode());
             words[1] = freqAndRel[0];
@@ -206,8 +215,14 @@ namespace NMRExperimentEditor.Model
             {
                 throw new ArgumentNullException(nameof(words));
             }
-
+            
             ExperimentNumber = words[0];
+            if(ExperimentNumber >> 15 == 1)
+            {
+                IsLast = true;
+                ExperimentNumber = (ushort)(ExperimentNumber & ~(1 << 15));
+            }
+
             GetFrequencyAndRelay(words[1], words[2], words[3], out ulong freq, out byte relayCode);
             FrequencyIndex = freq;
             SetRelayCode(relayCode);
