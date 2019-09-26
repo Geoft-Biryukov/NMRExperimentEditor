@@ -32,7 +32,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.experimentNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.frequencyIndexNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -74,9 +73,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.additionalWordnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.isLastCheckBox = new System.Windows.Forms.CheckBox();
+            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).BeginInit();
@@ -97,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayExpNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -194,17 +194,13 @@
             this.experimentNumberNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "ExperimentNumber", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.experimentNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.experimentNumberNumericUpDown.Enabled = false;
+            this.experimentNumberNumericUpDown.Hexadecimal = true;
             this.experimentNumberNumericUpDown.Location = new System.Drawing.Point(249, 3);
             this.experimentNumberNumericUpDown.Name = "experimentNumberNumericUpDown";
             this.experimentNumberNumericUpDown.ReadOnly = true;
             this.experimentNumberNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.experimentNumberNumericUpDown.TabIndex = 1;
             this.experimentNumberNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // experimentTableBidingSource
-            // 
-            this.experimentTableBidingSource.AllowNew = false;
-            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
             // 
             // label2
             // 
@@ -224,8 +220,8 @@
             this.frequencyIndexNumericUpDown.Hexadecimal = true;
             this.frequencyIndexNumericUpDown.Location = new System.Drawing.Point(249, 31);
             this.frequencyIndexNumericUpDown.Maximum = new decimal(new int[] {
-            1215752192,
-            23,
+            -1,
+            0,
             0,
             0});
             this.frequencyIndexNumericUpDown.Name = "frequencyIndexNumericUpDown";
@@ -248,7 +244,13 @@
             // 
             this.phaseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Phase", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.phaseNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.phaseNumericUpDown.Hexadecimal = true;
             this.phaseNumericUpDown.Location = new System.Drawing.Point(249, 59);
+            this.phaseNumericUpDown.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
             this.phaseNumericUpDown.Name = "phaseNumericUpDown";
             this.phaseNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.phaseNumericUpDown.TabIndex = 5;
@@ -269,7 +271,13 @@
             // 
             this.relayCodeNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RelayCode", true));
             this.relayCodeNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.relayCodeNumericUpDown.Hexadecimal = true;
             this.relayCodeNumericUpDown.Location = new System.Drawing.Point(249, 87);
+            this.relayCodeNumericUpDown.Maximum = new decimal(new int[] {
+            63,
+            0,
+            0,
+            0});
             this.relayCodeNumericUpDown.Name = "relayCodeNumericUpDown";
             this.relayCodeNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.relayCodeNumericUpDown.TabIndex = 7;
@@ -290,7 +298,13 @@
             // 
             this.silence1NumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Silence1", true));
             this.silence1NumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.silence1NumericUpDown.Hexadecimal = true;
             this.silence1NumericUpDown.Location = new System.Drawing.Point(249, 115);
+            this.silence1NumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.silence1NumericUpDown.Name = "silence1NumericUpDown";
             this.silence1NumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.silence1NumericUpDown.TabIndex = 9;
@@ -311,7 +325,13 @@
             // 
             this.noiseLengthNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "NoiseLength", true));
             this.noiseLengthNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noiseLengthNumericUpDown.Hexadecimal = true;
             this.noiseLengthNumericUpDown.Location = new System.Drawing.Point(249, 143);
+            this.noiseLengthNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.noiseLengthNumericUpDown.Name = "noiseLengthNumericUpDown";
             this.noiseLengthNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.noiseLengthNumericUpDown.TabIndex = 11;
@@ -332,7 +352,13 @@
             // 
             this.calibrationsCountNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "CalibrationsNumber", true));
             this.calibrationsCountNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.calibrationsCountNumericUpDown.Hexadecimal = true;
             this.calibrationsCountNumericUpDown.Location = new System.Drawing.Point(249, 171);
+            this.calibrationsCountNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.calibrationsCountNumericUpDown.Name = "calibrationsCountNumericUpDown";
             this.calibrationsCountNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.calibrationsCountNumericUpDown.TabIndex = 13;
@@ -353,7 +379,13 @@
             // 
             this.silence2NumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Silence2", true));
             this.silence2NumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.silence2NumericUpDown.Hexadecimal = true;
             this.silence2NumericUpDown.Location = new System.Drawing.Point(249, 199);
+            this.silence2NumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.silence2NumericUpDown.Name = "silence2NumericUpDown";
             this.silence2NumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.silence2NumericUpDown.TabIndex = 15;
@@ -374,7 +406,13 @@
             // 
             this.PhaseOfAPulseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "PhaseOfAPulse", true));
             this.PhaseOfAPulseNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PhaseOfAPulseNumericUpDown.Hexadecimal = true;
             this.PhaseOfAPulseNumericUpDown.Location = new System.Drawing.Point(249, 227);
+            this.PhaseOfAPulseNumericUpDown.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.PhaseOfAPulseNumericUpDown.Name = "PhaseOfAPulseNumericUpDown";
             this.PhaseOfAPulseNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.PhaseOfAPulseNumericUpDown.TabIndex = 17;
@@ -505,7 +543,13 @@
             // 
             this.startANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "APulseStart", true));
             this.startANumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startANumericUpDown.Hexadecimal = true;
             this.startANumericUpDown.Location = new System.Drawing.Point(249, 255);
+            this.startANumericUpDown.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.startANumericUpDown.Name = "startANumericUpDown";
             this.startANumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.startANumericUpDown.TabIndex = 29;
@@ -515,7 +559,13 @@
             // 
             this.continueANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "APulseContinue", true));
             this.continueANumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.continueANumericUpDown.Hexadecimal = true;
             this.continueANumericUpDown.Location = new System.Drawing.Point(249, 283);
+            this.continueANumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.continueANumericUpDown.Name = "continueANumericUpDown";
             this.continueANumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.continueANumericUpDown.TabIndex = 30;
@@ -525,7 +575,13 @@
             // 
             this.silenceANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "SilenceA", true));
             this.silenceANumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.silenceANumericUpDown.Hexadecimal = true;
             this.silenceANumericUpDown.Location = new System.Drawing.Point(249, 311);
+            this.silenceANumericUpDown.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.silenceANumericUpDown.Name = "silenceANumericUpDown";
             this.silenceANumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.silenceANumericUpDown.TabIndex = 31;
@@ -535,7 +591,13 @@
             // 
             this.BPulsePhaseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "BPulsePhase", true));
             this.BPulsePhaseNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BPulsePhaseNumericUpDown.Hexadecimal = true;
             this.BPulsePhaseNumericUpDown.Location = new System.Drawing.Point(249, 339);
+            this.BPulsePhaseNumericUpDown.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.BPulsePhaseNumericUpDown.Name = "BPulsePhaseNumericUpDown";
             this.BPulsePhaseNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.BPulsePhaseNumericUpDown.TabIndex = 32;
@@ -545,7 +607,13 @@
             // 
             this.continueBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "BPulseContinue", true));
             this.continueBNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.continueBNumericUpDown.Hexadecimal = true;
             this.continueBNumericUpDown.Location = new System.Drawing.Point(249, 367);
+            this.continueBNumericUpDown.Maximum = new decimal(new int[] {
+            4095,
+            0,
+            0,
+            0});
             this.continueBNumericUpDown.Name = "continueBNumericUpDown";
             this.continueBNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.continueBNumericUpDown.TabIndex = 33;
@@ -555,7 +623,13 @@
             // 
             this.silenceBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "SilenceB", true));
             this.silenceBNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.silenceBNumericUpDown.Hexadecimal = true;
             this.silenceBNumericUpDown.Location = new System.Drawing.Point(249, 395);
+            this.silenceBNumericUpDown.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.silenceBNumericUpDown.Name = "silenceBNumericUpDown";
             this.silenceBNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.silenceBNumericUpDown.TabIndex = 34;
@@ -565,7 +639,13 @@
             // 
             this.repeatBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RepeatB", true));
             this.repeatBNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.repeatBNumericUpDown.Hexadecimal = true;
             this.repeatBNumericUpDown.Location = new System.Drawing.Point(249, 423);
+            this.repeatBNumericUpDown.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.repeatBNumericUpDown.Name = "repeatBNumericUpDown";
             this.repeatBNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.repeatBNumericUpDown.TabIndex = 35;
@@ -575,7 +655,13 @@
             // 
             this.echoLengthNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "EchoLength", true));
             this.echoLengthNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.echoLengthNumericUpDown.Hexadecimal = true;
             this.echoLengthNumericUpDown.Location = new System.Drawing.Point(249, 451);
+            this.echoLengthNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.echoLengthNumericUpDown.Name = "echoLengthNumericUpDown";
             this.echoLengthNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.echoLengthNumericUpDown.TabIndex = 36;
@@ -585,7 +671,13 @@
             // 
             this.repeatExpNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RepeatExp", true));
             this.repeatExpNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.repeatExpNumericUpDown.Hexadecimal = true;
             this.repeatExpNumericUpDown.Location = new System.Drawing.Point(249, 479);
+            this.repeatExpNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.repeatExpNumericUpDown.Name = "repeatExpNumericUpDown";
             this.repeatExpNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.repeatExpNumericUpDown.TabIndex = 37;
@@ -595,7 +687,13 @@
             // 
             this.delayExpNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "DelayExp", true));
             this.delayExpNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.delayExpNumericUpDown.Hexadecimal = true;
             this.delayExpNumericUpDown.Location = new System.Drawing.Point(249, 507);
+            this.delayExpNumericUpDown.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.delayExpNumericUpDown.Name = "delayExpNumericUpDown";
             this.delayExpNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.delayExpNumericUpDown.TabIndex = 38;
@@ -605,7 +703,13 @@
             // 
             this.delayRecordNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "DelayRecord", true));
             this.delayRecordNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.delayRecordNumericUpDown.Hexadecimal = true;
             this.delayRecordNumericUpDown.Location = new System.Drawing.Point(249, 535);
+            this.delayRecordNumericUpDown.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.delayRecordNumericUpDown.Name = "delayRecordNumericUpDown";
             this.delayRecordNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.delayRecordNumericUpDown.TabIndex = 39;
@@ -625,7 +729,13 @@
             // 
             this.additionalWordnumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "AdditionalWord", true));
             this.additionalWordnumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.additionalWordnumericUpDown.Hexadecimal = true;
             this.additionalWordnumericUpDown.Location = new System.Drawing.Point(249, 563);
+            this.additionalWordnumericUpDown.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.additionalWordnumericUpDown.Name = "additionalWordnumericUpDown";
             this.additionalWordnumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.additionalWordnumericUpDown.TabIndex = 41;
@@ -645,6 +755,11 @@
             this.isLastCheckBox.Text = "Последний эксперимент: ";
             this.isLastCheckBox.UseVisualStyleBackColor = true;
             // 
+            // experimentTableBidingSource
+            // 
+            this.experimentTableBidingSource.AllowNew = false;
+            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
+            // 
             // ExperimentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,7 +772,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).EndInit();
@@ -678,6 +792,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayExpNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

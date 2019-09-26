@@ -29,8 +29,8 @@ namespace NMRExperimentEditor
         #region IMainView implementation
         public bool ExperimentViewVisible
         {
-            get => experimentView.Visible;
-            set => experimentView.Visible = value;
+            get => experimentView1.Visible;
+            set => experimentView1.Visible = value;
         }
 
         public ExperimentTableViewModel SelectedExperiment
@@ -49,12 +49,10 @@ namespace NMRExperimentEditor
             => experimentsListBox.DataSource = source ?? throw new ArgumentNullException(nameof(source));
 
         public void BindExperimentViewModel(ExperimentTableViewModel source)
-            => experimentView.BindViewModel(source);
+            => experimentView1.BindViewModel(source);
         
-
-        private const string filter = "Файл экспериментов|*.exp|Все файлы|*.*";
-
-        public string GetSaveExperimentsFileName()
+        
+        public string GetSaveExperimentsFileName(string filter)
         {
             using (var dialog = new SaveFileDialog())
             {
@@ -67,7 +65,7 @@ namespace NMRExperimentEditor
             }
         }
 
-        public string GetOpenExperimentsFileName()
+        public string GetOpenExperimentsFileName(string filter)
         {
             using (var dialog = new OpenFileDialog())
             {
@@ -100,20 +98,26 @@ namespace NMRExperimentEditor
 
         private void downButton_Click(object sender, EventArgs e) => presenter.DownExperiment();
 
+        private void copyButton_Click(object sender, EventArgs e) => presenter.CopySelected();
+
         private void save_Click(object sender, EventArgs e) => presenter.SaveExperiments();
 
         private void open_Click(object sender, EventArgs e) => presenter.OpenExperiments();
+
+        private void exportButton_Click(object sender, EventArgs e) => presenter.Export();
        
         private void experimentsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (experimentsListBox.SelectedItem is ExperimentTableViewModel current)
-                experimentView.BindViewModel(current);
+                experimentView1.BindViewModel(current);
         }
 
         private void exitButton_Click(object sender, EventArgs e) => Close();
         #endregion
 
-       
-        
+        private void copyToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

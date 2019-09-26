@@ -17,6 +17,8 @@ namespace NMRExperimentEditor.Presenters
     {
         private readonly IMainView view;
         private readonly BindingList<ExperimentTableViewModel> experiments = new BindingList<ExperimentTableViewModel>();
+        private const string filterExp = "Файл экспериментов|*.exp|Все файлы|*.*";
+        private const string filterArr = "Файл массива|*.arr|Все файлы|*.*";
 
         public MainPresenter(IMainView view)
         {
@@ -30,12 +32,23 @@ namespace NMRExperimentEditor.Presenters
         {
             view.ExperimentViewVisible = true;
 
-            var experimentTable = new ExperimentTable()
+            var experiment = new ExperimentTable()
             {
                 ExperimentNumber = (ushort)experiments.Count
             };
 
-            var viewModel = new ExperimentTableViewModel(experimentTable);
+            AddExperiment(experiment);
+
+            //var viewModel = new ExperimentTableViewModel(experimentTable);
+            //experiments.Add(viewModel);
+
+            //view.BindExperimentViewModel(viewModel);
+            //view.SelectedExperiment = viewModel;
+        }
+
+        private void AddExperiment(ExperimentTable experiment)
+        {
+            var viewModel = new ExperimentTableViewModel(experiment);
             experiments.Add(viewModel);
 
             view.BindExperimentViewModel(viewModel);
@@ -108,7 +121,7 @@ namespace NMRExperimentEditor.Presenters
 
         internal void SaveExperiments()
         {
-            string fileName = view.GetSaveExperimentsFileName();
+            string fileName = view.GetSaveExperimentsFileName(filterExp);
 
             if (string.IsNullOrEmpty(fileName))
                 return;
@@ -124,7 +137,7 @@ namespace NMRExperimentEditor.Presenters
 
         internal void OpenExperiments()
         {
-            var fileName = view.GetOpenExperimentsFileName();
+            var fileName = view.GetOpenExperimentsFileName(filterExp);
 
             using (var reader = File.OpenText(fileName))
             {
@@ -147,6 +160,28 @@ namespace NMRExperimentEditor.Presenters
 
                 view.UpdateSelected();               
             }
+        }
+
+        internal void CopySelected()
+        {
+            var selected = view.SelectedExperiment;
+            var copied = (ExperimentTable)(selected.Experimenent.Clone());
+            copied.ExperimentNumber = (ushort)experiments.Count;
+
+            AddExperiment(copied);
+        }
+
+        internal void Export()
+        {
+            var fileName = view.GetSaveExperimentsFileName(filterArr);
+            var exporter = new ExperementsExporter();
+
+            using (var stream = new FileStream(fileName, FileMode.Create,FileAccess.Write))
+            {                
+                exporter.Export(stream, experiments.Select(item => item.Experimenent));
+            }
+
+            view.ShowInformation("Файл успешно экспортирован.", "Экпорт экспериментов");
         }
     }
 }

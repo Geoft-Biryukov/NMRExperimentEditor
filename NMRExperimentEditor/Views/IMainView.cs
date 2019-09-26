@@ -16,8 +16,8 @@ namespace NMRExperimentEditor.Views
         ExperimentTableViewModel SelectedExperiment { get; set; }
         int SelectedIndex { get; set; }
 
-        string GetSaveExperimentsFileName();
-        string GetOpenExperimentsFileName();
+        string GetSaveExperimentsFileName(string filter);
+        string GetOpenExperimentsFileName(string filter);
         void ShowInformation(string text, string caption);
         void UpdateSelected();
     }

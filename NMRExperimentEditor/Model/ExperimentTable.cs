@@ -160,10 +160,10 @@ namespace NMRExperimentEditor.Model
         #region Get array
         public ushort[] GetArray()
         {
-            var words = new ushort[15];
+            var words = new ushort[16];
 
             if (IsLast)
-                words[0] = (ushort)(ExperimentNumber & (1 << 15));
+                words[0] = (ushort)(ExperimentNumber | (1 << 15));
             else
                 words[0] = ExperimentNumber;
 
@@ -183,10 +183,21 @@ namespace NMRExperimentEditor.Model
             words[12] = DelayExp;
             words[13] = DelayRecord;
             words[14] = AdditionalWord;
-
+            words[15] = CalculateCrc(words);
+            
             return words;
         }
-       
+
+        private static ushort CalculateCrc(ushort[] source)
+        {
+            int sum = 0;
+            foreach (var item in source)
+            {
+                sum += item;
+            }
+            return (ushort)(~sum);
+        }
+
         private static ushort[] GetFrequencyAndRelay(ulong freq, byte relayCode)
         {
             var result = new ushort[3];
