@@ -32,20 +32,20 @@
             this.experimentsListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportТаблицыЭкспериментовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.калькуляторЧастотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.индексРелеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.removeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.upToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.downToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.экспортТаблицыЭкспериментовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.experimentTableSimpleView1 = new NMRExperimentEditor.Views.ExperimentTableSimpleView();
+            this.experimentView = new NMRExperimentEditor.Views.ExperimentView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
@@ -81,33 +81,40 @@
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сохранитьToolStripMenuItem,
-            this.открытьToolStripMenuItem,
-            this.экспортТаблицыЭкспериментовToolStripMenuItem,
-            this.выходToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.exportТаблицыЭкспериментовToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
-            // сохранитьToolStripMenuItem
+            // saveToolStripMenuItem
             // 
-            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.сохранитьToolStripMenuItem.Text = "Сохранить как...";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.save_Click);
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Сохранить как...";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.save_Click);
             // 
-            // открытьToolStripMenuItem
+            // openToolStripMenuItem
             // 
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.открытьToolStripMenuItem.Text = "Открыть...";
-            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.open_Click);
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Открыть...";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.open_Click);
             // 
-            // выходToolStripMenuItem
+            // exportТаблицыЭкспериментовToolStripMenuItem
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
+            this.exportТаблицыЭкспериментовToolStripMenuItem.Name = "exportТаблицыЭкспериментовToolStripMenuItem";
+            this.exportТаблицыЭкспериментовToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportТаблицыЭкспериментовToolStripMenuItem.Text = "Экспорт...";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Выход";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // инструментыToolStripMenuItem
             // 
@@ -134,7 +141,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripButton,
-            this.deleteToolStripButton,
+            this.removeToolStripButton,
             this.upToolStripButton,
             this.downToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
@@ -153,15 +160,15 @@
             this.addToolStripButton.ToolTipText = "Добавить эксперимент";
             this.addToolStripButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // deleteToolStripButton
+            // removeToolStripButton
             // 
-            this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteToolStripButton.Image = global::NMRExperimentEditor.Properties.Resources.delete2;
-            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteToolStripButton.Name = "deleteToolStripButton";
-            this.deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.deleteToolStripButton.ToolTipText = "Удалить выбранный эксперимент";
-            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.removeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.removeToolStripButton.Image = global::NMRExperimentEditor.Properties.Resources.delete2;
+            this.removeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.removeToolStripButton.Name = "removeToolStripButton";
+            this.removeToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.removeToolStripButton.ToolTipText = "Удалить выбранный эксперимент";
+            this.removeToolStripButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // upToolStripButton
             // 
@@ -183,20 +190,14 @@
             this.downToolStripButton.ToolTipText = "На одну позицию вниз";
             this.downToolStripButton.Click += new System.EventHandler(this.downButton_Click);
             // 
-            // экспортТаблицыЭкспериментовToolStripMenuItem
+            // experimentView
             // 
-            this.экспортТаблицыЭкспериментовToolStripMenuItem.Name = "экспортТаблицыЭкспериментовToolStripMenuItem";
-            this.экспортТаблицыЭкспериментовToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.экспортТаблицыЭкспериментовToolStripMenuItem.Text = "Экспорт...";
-            // 
-            // experimentTableSimpleView1
-            // 
-            this.experimentTableSimpleView1.AutoScroll = true;
-            this.experimentTableSimpleView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.experimentTableSimpleView1.Location = new System.Drawing.Point(0, 0);
-            this.experimentTableSimpleView1.Name = "experimentTableSimpleView1";
-            this.experimentTableSimpleView1.Size = new System.Drawing.Size(383, 605);
-            this.experimentTableSimpleView1.TabIndex = 1;
+            this.experimentView.AutoScroll = true;
+            this.experimentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.experimentView.Location = new System.Drawing.Point(0, 0);
+            this.experimentView.Name = "experimentView";
+            this.experimentView.Size = new System.Drawing.Size(383, 605);
+            this.experimentView.TabIndex = 1;
             // 
             // splitContainer1
             // 
@@ -206,7 +207,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.experimentTableSimpleView1);
+            this.splitContainer1.Panel1.Controls.Add(this.experimentView);
             // 
             // splitContainer1.Panel2
             // 
@@ -253,23 +254,23 @@
         }
 
         #endregion
-        private Views.ExperimentTableSimpleView experimentTableSimpleView1;
+        private Views.ExperimentView experimentView;
         private System.Windows.Forms.ListBox experimentsListBox;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem калькуляторЧастотToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem индексРелеToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton addToolStripButton;
-        private System.Windows.Forms.ToolStripButton deleteToolStripButton;
+        private System.Windows.Forms.ToolStripButton removeToolStripButton;
         private System.Windows.Forms.ToolStripButton upToolStripButton;
         private System.Windows.Forms.ToolStripButton downToolStripButton;
-        private System.Windows.Forms.ToolStripMenuItem экспортТаблицыЭкспериментовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportТаблицыЭкспериментовToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel1;
     }

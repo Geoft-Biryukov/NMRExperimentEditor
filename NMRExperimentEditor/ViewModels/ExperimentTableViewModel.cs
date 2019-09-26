@@ -14,7 +14,7 @@ namespace NMRExperimentEditor.ViewModels
     /// Класс-обертка над ExperimentTable, предоставляющий
     /// связь с GUI
     /// </summary>
-    internal class ExperimentTableViewModel : INotifyPropertyChanged
+    public class ExperimentTableViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;        
 

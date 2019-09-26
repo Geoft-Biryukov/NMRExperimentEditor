@@ -1,6 +1,6 @@
 ﻿namespace NMRExperimentEditor.Views
 {
-    partial class ExperimentTableSimpleView
+    partial class ExperimentView
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.experimentNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.frequencyIndexNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,9 +74,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.additionalWordnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.isLastCheckBox = new System.Windows.Forms.CheckBox();
-            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).BeginInit();
@@ -96,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayExpNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -200,6 +200,11 @@
             this.experimentNumberNumericUpDown.Size = new System.Drawing.Size(116, 20);
             this.experimentNumberNumericUpDown.TabIndex = 1;
             this.experimentNumberNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // experimentTableBidingSource
+            // 
+            this.experimentTableBidingSource.AllowNew = false;
+            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
             // 
             // label2
             // 
@@ -640,23 +645,19 @@
             this.isLastCheckBox.Text = "Последний эксперимент: ";
             this.isLastCheckBox.UseVisualStyleBackColor = true;
             // 
-            // experimentTableBidingSource
-            // 
-            this.experimentTableBidingSource.AllowNew = false;
-            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
-            // 
-            // ExperimentTableSimpleView
+            // ExperimentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
-            this.Name = "ExperimentTableSimpleView";
+            this.Name = "ExperimentView";
             this.Size = new System.Drawing.Size(368, 626);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).EndInit();
@@ -677,7 +678,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayExpNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

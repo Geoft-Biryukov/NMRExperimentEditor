@@ -67,16 +67,17 @@
     <Compile Include="Model\Helpers.cs" />
     <Compile Include="Model\RelayCode.cs" />
     <Compile Include="Model\ExperimentTableConverters.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializers\IExperimentsSerializer.cs" />
     <Compile Include="Serializers\JsonExperimentsSerializer.cs" />
     <Compile Include="ViewModels\ExperimentTableViewModel.cs" />
-    <Compile Include="Views\ExperimentTableSimpleView.cs">
+    <Compile Include="Views\ExperimentView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ExperimentTableSimpleView.Designer.cs">
-      <DependentUpon>ExperimentTableSimpleView.cs</DependentUpon>
+    <Compile Include="Views\ExperimentView.Designer.cs">
+      <DependentUpon>ExperimentView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ExperimentTableView.cs">
       <SubType>UserControl</SubType>
@@ -94,6 +95,7 @@
     <Compile Include="Views\IExperimentCreator.cs" />
     <Compile Include="Views\IExperimentTableView.cs" />
     <Compile Include="Views\IFrequencyView.cs" />
+    <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\RelayView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,8 +116,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\ExperimentTableSimpleView.resx">
-      <DependentUpon>ExperimentTableSimpleView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ExperimentView.resx">
+      <DependentUpon>ExperimentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ExperimentTableView.resx">
       <DependentUpon>ExperimentTableView.cs</DependentUpon>

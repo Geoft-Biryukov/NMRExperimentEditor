@@ -1,4 +1,5 @@
 ﻿using NMRExperimentEditor.Model;
+using NMRExperimentEditor.Presenters;
 using NMRExperimentEditor.Serializers;
 using NMRExperimentEditor.ViewModels;
 using NMRExperimentEditor.Views;
@@ -15,166 +16,104 @@ using System.Windows.Forms;
 
 namespace NMRExperimentEditor
 {    
-    public partial class MainForm : Form, IExperimentCreator
-    {
-        private readonly Dictionary<TabPage, ExperimentTable> mapper = new Dictionary<TabPage, ExperimentTable>();
-        private readonly BindingList<ExperimentTableViewModel> experiments = new BindingList<ExperimentTableViewModel>();
+    public partial class MainForm : Form, IMainView
+    {              
+        private readonly MainPresenter presenter;
 
         public MainForm()
         {
-            InitializeComponent();            
-            experimentTableSimpleView1.Visible = false;
-            experimentsListBox.DataSource = experiments;
+            InitializeComponent();           
+            presenter = new MainPresenter(this);
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        #region IMainView implementation
+        public bool ExperimentViewVisible
         {
-            experimentTableSimpleView1.Visible = true;
-
-            var experimentTable = new ExperimentTable()
-            {
-                ExperimentNumber = (ushort)experiments.Count
-            };
-
-            var viewModel = new ExperimentTableViewModel(experimentTable);
-
-            experimentTableSimpleView1.BindViewModel(viewModel);
-
-            experiments.Add(viewModel);
-
-            experimentsListBox.SelectedItem = viewModel;
+            get => experimentView.Visible;
+            set => experimentView.Visible = value;
         }
-      
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        public ExperimentTableViewModel SelectedExperiment
         {
-            if (experiments.Count == 0)
-                return;           
-
-            var selected = experimentsListBox.SelectedItem as ExperimentTableViewModel;
-            int selectedIndex = experimentsListBox.SelectedIndex;
-            experiments.Remove(selected);
-
-            UpdateNumbers();
-           
-            if (experiments.Count == 0)
-            {
-                experimentTableSimpleView1.Visible = false;
-            }
-            else
-            {
-                experimentsListBox.SelectedIndex = Math.Max(selectedIndex - 1, 0);
-            }
-
-            experimentsListBox.Update();
+            get => experimentsListBox.SelectedItem as ExperimentTableViewModel;
+            set => experimentsListBox.SelectedItem = value;
         }
 
-        private void UpdateNumbers()
+        public int SelectedIndex
         {
-            experimentsListBox.DataSource = null;
-
-            for (int i = 0; i < experiments.Count; i++)
-            {
-                experiments[i].ExperimentNumber = i;
-            }
-           
-            experimentsListBox.DataSource = experiments;
+            get => experimentsListBox.SelectedIndex;
+            set => experimentsListBox.SelectedIndex = value;
         }
 
-        private void experimentsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (experimentsListBox.SelectedItem is ExperimentTableViewModel current)
-                experimentTableSimpleView1.BindViewModel(current);
-        }
+        public void BindExperiments(BindingList<ExperimentTableViewModel> source)
+            => experimentsListBox.DataSource = source ?? throw new ArgumentNullException(nameof(source));
 
-        private void upButton_Click(object sender, EventArgs e)
-        {
-            int selectedIndex = experimentsListBox.SelectedIndex;
+        public void BindExperimentViewModel(ExperimentTableViewModel source)
+            => experimentView.BindViewModel(source);
+        
 
-            if (selectedIndex == 0)
-                return;
+        private const string filter = "Файл экспериментов|*.exp|Все файлы|*.*";
 
-            SwapExperiments(selectedIndex);
-
-            experimentsListBox.SelectedIndex = selectedIndex - 1;
-            UpdateNumbers();
-        }
-
-        private void downButton_Click(object sender, EventArgs e)
-        {
-            int selectedIndex = experimentsListBox.SelectedIndex;
-
-            if (selectedIndex == experiments.Count - 1)
-                return;
-
-            SwapExperiments(selectedIndex + 1);
-
-            experimentsListBox.SelectedIndex = selectedIndex + 1;
-            UpdateNumbers();
-        }
-
-        private void SwapExperiments(int index)
-        {
-            var tmp = experiments[index];
-            experiments[index] = experiments[index - 1];
-            experiments[index - 1] = tmp;
-        }
-
-        private IExperimentsSerializer serializer = new JsonExperimentsSerializer(); 
-
-        private void save_Click(object sender, EventArgs e)
+        public string GetSaveExperimentsFileName()
         {
             using (var dialog = new SaveFileDialog())
             {
-                dialog.Filter = "Файл экспериментов|*.exp|Все файлы|*.*";
+                dialog.Filter = filter;
 
-                if(dialog.ShowDialog() == DialogResult.OK)
-                {
-                    using (var writer = File.CreateText(dialog.FileName))
-                    {
-                        var json = serializer.Serialize(experiments.Select(item => item.Experimenent));
-                        writer.Write(json);
-                    }
-
-                    MessageBox.Show("Файл успешно сохранен!", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                if (dialog.ShowDialog() == DialogResult.OK)                
+                    return dialog.FileName;                
+                else
+                    return string.Empty;
             }
         }
 
-        private void open_Click(object sender, EventArgs e)
+        public string GetOpenExperimentsFileName()
         {
             using (var dialog = new OpenFileDialog())
             {
-                dialog.Filter = "Файл экспериментов|*.exp|Все файлы|*.*";                
+                dialog.Filter = filter;
 
                 if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    using (var reader = File.OpenText(dialog.FileName))
-                    {
-                        var source = reader.ReadToEnd();
-                        var exps = serializer.Deserialize(source);
-
-                        if (!exps.Any())
-                            return;
-
-                        experiments.Clear();
-                        experimentTableSimpleView1.Visible = true;
-
-                        foreach (var exp in exps)
-                        {
-                            var viewModel = new ExperimentTableViewModel(exp);
-                            experiments.Add(viewModel);
-                        }
-
-                        experiments.ResetBindings();
-                        
-                        experimentsListBox.ClearSelected();
-                        experimentsListBox.SelectedIndex = 0;
-                    }
-
-                   // MessageBox.Show("Файл успешно сохранен!", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    return dialog.FileName;
+                else
+                    return string.Empty;
             }
         }
+
+        public void UpdateSelected()
+
+        {
+            experimentsListBox.ClearSelected();
+            experimentsListBox.SelectedIndex = 0;
+        }
+
+        public void ShowInformation(string text, string caption)
+            => MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        #endregion
+
+        #region Event handlers
+        private void addButton_Click(object sender, EventArgs e) => presenter.AddExperiment();
+
+        private void removeButton_Click(object sender, EventArgs e) => presenter.RemoveExperiment();
+                       
+        private void upButton_Click(object sender, EventArgs e) => presenter.UpExperiment();
+
+        private void downButton_Click(object sender, EventArgs e) => presenter.DownExperiment();
+
+        private void save_Click(object sender, EventArgs e) => presenter.SaveExperiments();
+
+        private void open_Click(object sender, EventArgs e) => presenter.OpenExperiments();
+       
+        private void experimentsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (experimentsListBox.SelectedItem is ExperimentTableViewModel current)
+                experimentView.BindViewModel(current);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e) => Close();
+        #endregion
+
+       
+        
     }
 }

@@ -11,16 +11,16 @@ using NMRExperimentEditor.Model;
 
 namespace NMRExperimentEditor.Views
 {
-    public partial class ExperimentTableSimpleView : UserControl
+    public partial class ExperimentView : UserControl
     {
         private readonly ExperimentTable table;
 
-        public ExperimentTableSimpleView()
+        public ExperimentView()
         {
             InitializeComponent();
         }
 
-        public ExperimentTableSimpleView(ExperimentTable table)
+        public ExperimentView(ExperimentTable table)
             : this()
         {
             this.table = table ?? throw new ArgumentNullException(nameof(table));            
