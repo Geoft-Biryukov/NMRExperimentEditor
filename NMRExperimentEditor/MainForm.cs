@@ -123,9 +123,13 @@ namespace NMRExperimentEditor
             if (experimentsListBox.SelectedItem is ExperimentTableViewModel current)
                 experimentView1.BindViewModel(current);
         }
-        
-        #endregion       
 
-        
+        #endregion
+
+        private void relayCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var calc = new RelayCodeCalculator();
+            calc.Show();
+        }
     }
 }

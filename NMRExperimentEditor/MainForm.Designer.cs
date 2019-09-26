@@ -38,7 +38,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.калькуляторЧастотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.индексРелеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relayCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -49,8 +51,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.experimentView1 = new NMRExperimentEditor.Views.ExperimentView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -125,7 +125,7 @@
             // 
             this.инструментыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.калькуляторЧастотToolStripMenuItem,
-            this.индексРелеToolStripMenuItem});
+            this.relayCodeToolStripMenuItem});
             this.инструментыToolStripMenuItem.Name = "инструментыToolStripMenuItem";
             this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.инструментыToolStripMenuItem.Text = "Инструменты";
@@ -136,11 +136,30 @@
             this.калькуляторЧастотToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.калькуляторЧастотToolStripMenuItem.Text = "Калькулятор частот...";
             // 
-            // индексРелеToolStripMenuItem
+            // relayCodeToolStripMenuItem
             // 
-            this.индексРелеToolStripMenuItem.Name = "индексРелеToolStripMenuItem";
-            this.индексРелеToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.индексРелеToolStripMenuItem.Text = "Индекс реле...";
+            this.relayCodeToolStripMenuItem.Name = "relayCodeToolStripMenuItem";
+            this.relayCodeToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.relayCodeToolStripMenuItem.Text = "Индекс реле...";
+            this.relayCodeToolStripMenuItem.Click += new System.EventHandler(this.relayCodeToolStripMenuItem_Click);
+            // 
+            // настройкиToolStripMenuItem
+            // 
+            this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hexToolStripMenuItem});
+            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.настройкиToolStripMenuItem.Text = "Настройки";
+            // 
+            // hexToolStripMenuItem
+            // 
+            this.hexToolStripMenuItem.Checked = true;
+            this.hexToolStripMenuItem.CheckOnClick = true;
+            this.hexToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.hexToolStripMenuItem.Name = "hexToolStripMenuItem";
+            this.hexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hexToolStripMenuItem.Text = "Таблица Hex";
+            this.hexToolStripMenuItem.Click += new System.EventHandler(this.hexToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -227,6 +246,7 @@
             // 
             this.experimentView1.AutoScroll = true;
             this.experimentView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.experimentView1.IsHexadecimal = true;
             this.experimentView1.Location = new System.Drawing.Point(0, 0);
             this.experimentView1.Name = "experimentView1";
             this.experimentView1.Size = new System.Drawing.Size(383, 605);
@@ -241,24 +261,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
             this.panel1.Size = new System.Drawing.Size(574, 611);
             this.panel1.TabIndex = 7;
-            // 
-            // настройкиToolStripMenuItem
-            // 
-            this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hexToolStripMenuItem});
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
-            // 
-            // hexToolStripMenuItem
-            // 
-            this.hexToolStripMenuItem.Checked = true;
-            this.hexToolStripMenuItem.CheckOnClick = true;
-            this.hexToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hexToolStripMenuItem.Name = "hexToolStripMenuItem";
-            this.hexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hexToolStripMenuItem.Text = "Таблица Hex";
-            this.hexToolStripMenuItem.Click += new System.EventHandler(this.hexToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -299,7 +301,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem калькуляторЧастотToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem индексРелеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem relayCodeToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton addToolStripButton;
         private System.Windows.Forms.ToolStripButton removeToolStripButton;

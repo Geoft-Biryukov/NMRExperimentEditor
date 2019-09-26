@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presenters\ExperimentTablePresenter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,12 +75,6 @@
     <Compile Include="Views\ExperimentView.Designer.cs">
       <DependentUpon>ExperimentView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ExperimentTableView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\ExperimentTableView.Designer.cs">
-      <DependentUpon>ExperimentTableView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presenters\FrequencyPresenter.cs" />
     <Compile Include="Views\FrequencyView.cs">
       <SubType>UserControl</SubType>
@@ -89,10 +82,14 @@
     <Compile Include="Views\FrequencyView.Designer.cs">
       <DependentUpon>FrequencyView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\IExperimentCreator.cs" />
-    <Compile Include="Views\IExperimentTableView.cs" />
     <Compile Include="Views\IFrequencyView.cs" />
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\RelayCodeCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RelayCodeCalculator.Designer.cs">
+      <DependentUpon>RelayCodeCalculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RelayView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,11 +112,11 @@
     <EmbeddedResource Include="Views\ExperimentView.resx">
       <DependentUpon>ExperimentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ExperimentTableView.resx">
-      <DependentUpon>ExperimentTableView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrequencyView.resx">
       <DependentUpon>FrequencyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RelayCodeCalculator.resx">
+      <DependentUpon>RelayCodeCalculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RelayView.resx">
       <DependentUpon>RelayView.cs</DependentUpon>
