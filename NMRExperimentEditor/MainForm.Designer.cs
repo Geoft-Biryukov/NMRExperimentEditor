@@ -50,7 +50,7 @@
             this.experimentView1 = new NMRExperimentEditor.Views.ExperimentView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.таблицаHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -245,19 +245,20 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.таблицаHexToolStripMenuItem});
+            this.hexToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
-            // таблицаHexToolStripMenuItem
+            // hexToolStripMenuItem
             // 
-            this.таблицаHexToolStripMenuItem.Checked = true;
-            this.таблицаHexToolStripMenuItem.CheckOnClick = true;
-            this.таблицаHexToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.таблицаHexToolStripMenuItem.Name = "таблицаHexToolStripMenuItem";
-            this.таблицаHexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.таблицаHexToolStripMenuItem.Text = "Таблица Hex";
+            this.hexToolStripMenuItem.Checked = true;
+            this.hexToolStripMenuItem.CheckOnClick = true;
+            this.hexToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.hexToolStripMenuItem.Name = "hexToolStripMenuItem";
+            this.hexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hexToolStripMenuItem.Text = "Таблица Hex";
+            this.hexToolStripMenuItem.Click += new System.EventHandler(this.hexToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -271,6 +272,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Редактор экспериментов КарСар ЯК";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -309,7 +311,7 @@
         private Views.ExperimentView experimentView1;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem таблицаHexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hexToolStripMenuItem;
     }
 }
 

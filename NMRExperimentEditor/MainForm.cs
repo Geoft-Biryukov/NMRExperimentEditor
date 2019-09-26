@@ -90,6 +90,8 @@ namespace NMRExperimentEditor
         #endregion
 
         #region Event handlers
+
+        #region Tools
         private void addButton_Click(object sender, EventArgs e) => presenter.AddExperiment();
 
         private void removeButton_Click(object sender, EventArgs e) => presenter.RemoveExperiment();
@@ -99,25 +101,31 @@ namespace NMRExperimentEditor
         private void downButton_Click(object sender, EventArgs e) => presenter.DownExperiment();
 
         private void copyButton_Click(object sender, EventArgs e) => presenter.CopySelected();
+        #endregion
 
+        #region File menu
         private void save_Click(object sender, EventArgs e) => presenter.SaveExperiments();
 
         private void open_Click(object sender, EventArgs e) => presenter.OpenExperiments();
 
         private void exportButton_Click(object sender, EventArgs e) => presenter.Export();
-       
+
+        private void exitButton_Click(object sender, EventArgs e) => Close();
+        #endregion
+
+        #region Option
+        private void hexToolStripMenuItem_Click(object sender, EventArgs e)
+            => experimentView1.IsHexadecimal = hexToolStripMenuItem.Checked;
+        #endregion
+
         private void experimentsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (experimentsListBox.SelectedItem is ExperimentTableViewModel current)
                 experimentView1.BindViewModel(current);
         }
+        
+        #endregion       
 
-        private void exitButton_Click(object sender, EventArgs e) => Close();
-        #endregion
-
-        private void copyToolStripButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

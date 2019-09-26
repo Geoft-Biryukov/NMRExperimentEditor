@@ -33,5 +33,23 @@ namespace NMRExperimentEditor.Views
         {
             experimentTableBidingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
         }
+
+        private bool isHexadecimal = true;
+        public bool IsHexadecimal
+        {
+            get => isHexadecimal;
+            set
+            {
+                if (value == isHexadecimal)
+                    return;
+
+                isHexadecimal = value;
+                foreach (var ctrl in tableLayoutPanel1.Controls)
+                {
+                    if (ctrl is NumericUpDown numericUpDown)
+                        numericUpDown.Hexadecimal = isHexadecimal;
+                }
+            }
+        }
     }
 }
