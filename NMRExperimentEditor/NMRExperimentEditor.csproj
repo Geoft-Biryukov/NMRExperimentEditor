@@ -76,6 +76,18 @@
       <DependentUpon>ExperimentView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenters\FrequencyPresenter.cs" />
+    <Compile Include="Views\FrequencyCalculator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FrequencyCalculator.Designer.cs">
+      <DependentUpon>FrequencyCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrequencyCalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrequencyCalculatorForm.Designer.cs">
+      <DependentUpon>FrequencyCalculatorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrequencyView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +123,12 @@
     </Compile>
     <EmbeddedResource Include="Views\ExperimentView.resx">
       <DependentUpon>ExperimentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrequencyCalculator.resx">
+      <DependentUpon>FrequencyCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrequencyCalculatorForm.resx">
+      <DependentUpon>FrequencyCalculatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrequencyView.resx">
       <DependentUpon>FrequencyView.cs</DependentUpon>

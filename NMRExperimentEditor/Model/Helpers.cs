@@ -42,13 +42,13 @@ namespace NMRExperimentEditor.Model
         public static double GetFrequencyByFrequencyIndex(uint index, double sysClk)
         {
             ulong divider = (ulong)1 << 32;
-            return index * sysClk / divider;
+            return (index * sysClk / divider);// / 32;
         }
 
         public static uint GetFrequencyIndexByFrequency(double frequency, double sysClk)
         {
             ulong multipler = (ulong)1 << 32;
-            return (uint)(frequency * multipler / sysClk);
+            return (uint)(frequency * multipler / sysClk);// * 32;
         }
     }
 }

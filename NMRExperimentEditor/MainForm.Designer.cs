@@ -37,7 +37,7 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.калькуляторЧастотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frequencyCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relayCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,17 +124,18 @@
             // инструментыToolStripMenuItem
             // 
             this.инструментыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.калькуляторЧастотToolStripMenuItem,
+            this.frequencyCalculatorToolStripMenuItem,
             this.relayCodeToolStripMenuItem});
             this.инструментыToolStripMenuItem.Name = "инструментыToolStripMenuItem";
             this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.инструментыToolStripMenuItem.Text = "Инструменты";
             // 
-            // калькуляторЧастотToolStripMenuItem
+            // frequencyCalculatorToolStripMenuItem
             // 
-            this.калькуляторЧастотToolStripMenuItem.Name = "калькуляторЧастотToolStripMenuItem";
-            this.калькуляторЧастотToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.калькуляторЧастотToolStripMenuItem.Text = "Калькулятор частот...";
+            this.frequencyCalculatorToolStripMenuItem.Name = "frequencyCalculatorToolStripMenuItem";
+            this.frequencyCalculatorToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.frequencyCalculatorToolStripMenuItem.Text = "Калькулятор частот...";
+            this.frequencyCalculatorToolStripMenuItem.Click += new System.EventHandler(this.frequencyCalculatorToolStripMenuItem_Click);
             // 
             // relayCodeToolStripMenuItem
             // 
@@ -301,7 +302,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem калькуляторЧастотToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frequencyCalculatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relayCodeToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton addToolStripButton;

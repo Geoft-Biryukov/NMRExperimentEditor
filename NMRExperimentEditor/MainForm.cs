@@ -131,5 +131,11 @@ namespace NMRExperimentEditor
             var calc = new RelayCodeCalculator();
             calc.Show();
         }
+
+        private void frequencyCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var calc = new FrequencyCalculatorForm();
+            calc.Show();
+        }
     }
 }
