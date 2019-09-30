@@ -66,7 +66,7 @@
             this.experimentsListBox.FormattingEnabled = true;
             this.experimentsListBox.Location = new System.Drawing.Point(0, 0);
             this.experimentsListBox.Name = "experimentsListBox";
-            this.experimentsListBox.Size = new System.Drawing.Size(181, 605);
+            this.experimentsListBox.Size = new System.Drawing.Size(181, 606);
             this.experimentsListBox.TabIndex = 2;
             this.experimentsListBox.SelectedIndexChanged += new System.EventHandler(this.experimentsListBox_SelectedIndexChanged);
             // 
@@ -157,7 +157,7 @@
             this.hexToolStripMenuItem.CheckOnClick = true;
             this.hexToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hexToolStripMenuItem.Name = "hexToolStripMenuItem";
-            this.hexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hexToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.hexToolStripMenuItem.Text = "Таблица Hex";
             this.hexToolStripMenuItem.Click += new System.EventHandler(this.hexToolStripMenuItem_Click);
             // 
@@ -238,7 +238,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.experimentsListBox);
-            this.splitContainer1.Size = new System.Drawing.Size(568, 605);
+            this.splitContainer1.Size = new System.Drawing.Size(568, 606);
             this.splitContainer1.SplitterDistance = 383;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -249,7 +249,7 @@
             this.experimentView1.IsHexadecimal = true;
             this.experimentView1.Location = new System.Drawing.Point(0, 0);
             this.experimentView1.Name = "experimentView1";
-            this.experimentView1.Size = new System.Drawing.Size(383, 605);
+            this.experimentView1.Size = new System.Drawing.Size(383, 606);
             this.experimentView1.TabIndex = 0;
             // 
             // panel1
@@ -259,19 +259,20 @@
             this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
-            this.panel1.Size = new System.Drawing.Size(574, 611);
+            this.panel1.Size = new System.Drawing.Size(574, 612);
             this.panel1.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 660);
+            this.ClientSize = new System.Drawing.Size(574, 661);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(590, 700);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

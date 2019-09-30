@@ -15,6 +15,13 @@ namespace NMRExperimentEditor.Views
         public RelayCodeCalculator()
         {
             InitializeComponent();
+            relaysView1.Hexadecimal = hexCheckBox.Checked;
+        }
+
+
+        private void hexCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            relaysView1.Hexadecimal = hexCheckBox.Checked;
         }
     }
 }

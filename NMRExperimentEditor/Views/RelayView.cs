@@ -61,5 +61,16 @@ namespace NMRExperimentEditor.Views
             relaySetting = false;
         }
        
+        public bool Hexadecimal
+        {
+            get => relayCode.Hexadecimal;
+            set
+            {
+                if (relayCode.Hexadecimal == value)
+                    return;
+
+                relayCode.Hexadecimal = value;
+            }
+        }
     }
 }
