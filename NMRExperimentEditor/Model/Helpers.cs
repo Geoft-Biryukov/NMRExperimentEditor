@@ -49,6 +49,6 @@ namespace NMRExperimentEditor.Model
         {
             ulong multipler = (ulong)1 << 32;
             return (uint)(frequency * multipler / sysClk);// * 32;
-        }
+        }       
     }
 }

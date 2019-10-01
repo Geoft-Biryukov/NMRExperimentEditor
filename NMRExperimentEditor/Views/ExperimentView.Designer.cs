@@ -32,7 +32,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.experimentNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.frequencyIndexNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -74,9 +73,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.additionalWordnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.isLastCheckBox = new System.Windows.Forms.CheckBox();
+            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).BeginInit();
@@ -97,14 +96,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayExpNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.86747F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.13253F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.25F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.experimentNumberNumericUpDown, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -184,9 +184,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 28);
+            this.label1.Size = new System.Drawing.Size(247, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Номер эксперимента:";
+            this.label1.Text = "Номер эксперимента (Nr):";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // experimentNumberNumericUpDown
@@ -195,17 +195,12 @@
             this.experimentNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.experimentNumberNumericUpDown.Enabled = false;
             this.experimentNumberNumericUpDown.Hexadecimal = true;
-            this.experimentNumberNumericUpDown.Location = new System.Drawing.Point(249, 3);
+            this.experimentNumberNumericUpDown.Location = new System.Drawing.Point(256, 3);
             this.experimentNumberNumericUpDown.Name = "experimentNumberNumericUpDown";
             this.experimentNumberNumericUpDown.ReadOnly = true;
-            this.experimentNumberNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.experimentNumberNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.experimentNumberNumericUpDown.TabIndex = 1;
             this.experimentNumberNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // experimentTableBidingSource
-            // 
-            this.experimentTableBidingSource.AllowNew = false;
-            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
             // 
             // label2
             // 
@@ -213,9 +208,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(3, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 28);
+            this.label2.Size = new System.Drawing.Size(247, 28);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Код частоты:";
+            this.label2.Text = "Код частоты (Fc):";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frequencyIndexNumericUpDown
@@ -223,14 +218,14 @@
             this.frequencyIndexNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "FrequencyIndex", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.frequencyIndexNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.frequencyIndexNumericUpDown.Hexadecimal = true;
-            this.frequencyIndexNumericUpDown.Location = new System.Drawing.Point(249, 31);
+            this.frequencyIndexNumericUpDown.Location = new System.Drawing.Point(256, 31);
             this.frequencyIndexNumericUpDown.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.frequencyIndexNumericUpDown.Name = "frequencyIndexNumericUpDown";
-            this.frequencyIndexNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.frequencyIndexNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.frequencyIndexNumericUpDown.TabIndex = 3;
             this.frequencyIndexNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -240,7 +235,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(240, 28);
+            this.label3.Size = new System.Drawing.Size(247, 28);
             this.label3.TabIndex = 4;
             this.label3.Text = "Фаза:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -250,14 +245,14 @@
             this.phaseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Phase", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.phaseNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.phaseNumericUpDown.Hexadecimal = true;
-            this.phaseNumericUpDown.Location = new System.Drawing.Point(249, 59);
+            this.phaseNumericUpDown.Location = new System.Drawing.Point(256, 59);
             this.phaseNumericUpDown.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
             this.phaseNumericUpDown.Name = "phaseNumericUpDown";
-            this.phaseNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.phaseNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.phaseNumericUpDown.TabIndex = 5;
             this.phaseNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -267,24 +262,24 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 84);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(240, 28);
+            this.label4.Size = new System.Drawing.Size(247, 28);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Код реле:";
+            this.label4.Text = "Код реле (Rc):";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // relayCodeNumericUpDown
             // 
-            this.relayCodeNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RelayCode", true));
+            this.relayCodeNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RelayCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.relayCodeNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.relayCodeNumericUpDown.Hexadecimal = true;
-            this.relayCodeNumericUpDown.Location = new System.Drawing.Point(249, 87);
+            this.relayCodeNumericUpDown.Location = new System.Drawing.Point(256, 87);
             this.relayCodeNumericUpDown.Maximum = new decimal(new int[] {
             63,
             0,
             0,
             0});
             this.relayCodeNumericUpDown.Name = "relayCodeNumericUpDown";
-            this.relayCodeNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.relayCodeNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.relayCodeNumericUpDown.TabIndex = 7;
             this.relayCodeNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -294,24 +289,24 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 112);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(240, 28);
+            this.label5.Size = new System.Drawing.Size(247, 28);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Тишина 1:";
+            this.label5.Text = "Тишина 1 (S1):";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // silence1NumericUpDown
             // 
-            this.silence1NumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Silence1", true));
+            this.silence1NumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Silence1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.silence1NumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.silence1NumericUpDown.Hexadecimal = true;
-            this.silence1NumericUpDown.Location = new System.Drawing.Point(249, 115);
+            this.silence1NumericUpDown.Location = new System.Drawing.Point(256, 115);
             this.silence1NumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.silence1NumericUpDown.Name = "silence1NumericUpDown";
-            this.silence1NumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.silence1NumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.silence1NumericUpDown.TabIndex = 9;
             this.silence1NumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -321,24 +316,24 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(3, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(240, 28);
+            this.label6.Size = new System.Drawing.Size(247, 28);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Длина шума:";
+            this.label6.Text = "Длина шума (Ln):";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // noiseLengthNumericUpDown
             // 
-            this.noiseLengthNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "NoiseLength", true));
+            this.noiseLengthNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "NoiseLength", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.noiseLengthNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.noiseLengthNumericUpDown.Hexadecimal = true;
-            this.noiseLengthNumericUpDown.Location = new System.Drawing.Point(249, 143);
+            this.noiseLengthNumericUpDown.Location = new System.Drawing.Point(256, 143);
             this.noiseLengthNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.noiseLengthNumericUpDown.Name = "noiseLengthNumericUpDown";
-            this.noiseLengthNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.noiseLengthNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.noiseLengthNumericUpDown.TabIndex = 11;
             this.noiseLengthNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -348,24 +343,24 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(3, 168);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(240, 28);
+            this.label7.Size = new System.Drawing.Size(247, 28);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Число калибровочных выборок:";
+            this.label7.Text = "Число калибровочных выборок (Ncal):";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // calibrationsCountNumericUpDown
             // 
-            this.calibrationsCountNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "CalibrationsNumber", true));
+            this.calibrationsCountNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "CalibrationsNumber", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.calibrationsCountNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.calibrationsCountNumericUpDown.Hexadecimal = true;
-            this.calibrationsCountNumericUpDown.Location = new System.Drawing.Point(249, 171);
+            this.calibrationsCountNumericUpDown.Location = new System.Drawing.Point(256, 171);
             this.calibrationsCountNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.calibrationsCountNumericUpDown.Name = "calibrationsCountNumericUpDown";
-            this.calibrationsCountNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.calibrationsCountNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.calibrationsCountNumericUpDown.TabIndex = 13;
             this.calibrationsCountNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -375,24 +370,24 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(3, 196);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(240, 28);
+            this.label8.Size = new System.Drawing.Size(247, 28);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Тишина 2:";
+            this.label8.Text = "Тишина 2 (S2):";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // silence2NumericUpDown
             // 
-            this.silence2NumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Silence2", true));
+            this.silence2NumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "Silence2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.silence2NumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.silence2NumericUpDown.Hexadecimal = true;
-            this.silence2NumericUpDown.Location = new System.Drawing.Point(249, 199);
+            this.silence2NumericUpDown.Location = new System.Drawing.Point(256, 199);
             this.silence2NumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.silence2NumericUpDown.Name = "silence2NumericUpDown";
-            this.silence2NumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.silence2NumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.silence2NumericUpDown.TabIndex = 15;
             this.silence2NumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -402,24 +397,24 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(3, 224);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(240, 28);
+            this.label9.Size = new System.Drawing.Size(247, 28);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Фаза A-импульса:";
+            this.label9.Text = "Фаза A-импульса (Aph):";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PhaseOfAPulseNumericUpDown
             // 
-            this.PhaseOfAPulseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "PhaseOfAPulse", true));
+            this.PhaseOfAPulseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "PhaseOfAPulse", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.PhaseOfAPulseNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PhaseOfAPulseNumericUpDown.Hexadecimal = true;
-            this.PhaseOfAPulseNumericUpDown.Location = new System.Drawing.Point(249, 227);
+            this.PhaseOfAPulseNumericUpDown.Location = new System.Drawing.Point(256, 227);
             this.PhaseOfAPulseNumericUpDown.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.PhaseOfAPulseNumericUpDown.Name = "PhaseOfAPulseNumericUpDown";
-            this.PhaseOfAPulseNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.PhaseOfAPulseNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.PhaseOfAPulseNumericUpDown.TabIndex = 17;
             this.PhaseOfAPulseNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -429,9 +424,9 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Location = new System.Drawing.Point(3, 252);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 28);
+            this.label10.Size = new System.Drawing.Size(81, 28);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Начало A:";
+            this.label10.Text = "Начало A (Ast):";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
@@ -440,9 +435,9 @@
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Location = new System.Drawing.Point(3, 280);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(240, 28);
+            this.label11.Size = new System.Drawing.Size(247, 28);
             this.label11.TabIndex = 19;
-            this.label11.Text = "Продолжение A:";
+            this.label11.Text = "Продолжение A (Asu):";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
@@ -451,9 +446,9 @@
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Location = new System.Drawing.Point(3, 308);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(240, 28);
+            this.label12.Size = new System.Drawing.Size(247, 28);
             this.label12.TabIndex = 20;
-            this.label12.Text = "Тишина A:";
+            this.label12.Text = "Тишина A (Sa):";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
@@ -462,9 +457,9 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Location = new System.Drawing.Point(3, 336);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(240, 28);
+            this.label13.Size = new System.Drawing.Size(247, 28);
             this.label13.TabIndex = 21;
-            this.label13.Text = "Фаза B-импульса:";
+            this.label13.Text = "Фаза B-импульса (Bph):";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label14
@@ -473,9 +468,9 @@
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Location = new System.Drawing.Point(3, 364);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(240, 28);
+            this.label14.Size = new System.Drawing.Size(247, 28);
             this.label14.TabIndex = 22;
-            this.label14.Text = "Продолжение B:";
+            this.label14.Text = "Продолжение B (Bsu):";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label15
@@ -484,9 +479,9 @@
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Location = new System.Drawing.Point(3, 392);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(240, 28);
+            this.label15.Size = new System.Drawing.Size(247, 28);
             this.label15.TabIndex = 23;
-            this.label15.Text = "Тишина B:";
+            this.label15.Text = "Тишина B (Sb):";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label16
@@ -495,9 +490,9 @@
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Location = new System.Drawing.Point(3, 420);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(240, 28);
+            this.label16.Size = new System.Drawing.Size(247, 28);
             this.label16.TabIndex = 24;
-            this.label16.Text = "Количество повторений B-импульса:";
+            this.label16.Text = "Количество повторений B-импульса (Brep):";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label17
@@ -506,9 +501,9 @@
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Location = new System.Drawing.Point(3, 448);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(240, 28);
+            this.label17.Size = new System.Drawing.Size(247, 28);
             this.label17.TabIndex = 25;
-            this.label17.Text = "Длина эхо:";
+            this.label17.Text = "Длина эхо (Le):";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label18
@@ -517,9 +512,9 @@
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Location = new System.Drawing.Point(3, 476);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(240, 28);
+            this.label18.Size = new System.Drawing.Size(247, 28);
             this.label18.TabIndex = 26;
-            this.label18.Text = "Количество повторений экспериментов:";
+            this.label18.Text = "Количество повторений экспериментов (Srep):";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label19
@@ -528,9 +523,9 @@
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Location = new System.Drawing.Point(3, 504);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(240, 28);
+            this.label19.Size = new System.Drawing.Size(247, 28);
             this.label19.TabIndex = 27;
-            this.label19.Text = "Задержка между экспериментами:";
+            this.label19.Text = "Задержка между экспериментами (Dexp):";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label20
@@ -539,184 +534,184 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Location = new System.Drawing.Point(3, 532);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(240, 28);
+            this.label20.Size = new System.Drawing.Size(247, 28);
             this.label20.TabIndex = 28;
-            this.label20.Text = "Задержка после одной записи:";
+            this.label20.Text = "Задержка после одной записи (Drec):";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // startANumericUpDown
             // 
-            this.startANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "APulseStart", true));
+            this.startANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "APulseStart", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.startANumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.startANumericUpDown.Hexadecimal = true;
-            this.startANumericUpDown.Location = new System.Drawing.Point(249, 255);
+            this.startANumericUpDown.Location = new System.Drawing.Point(256, 255);
             this.startANumericUpDown.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.startANumericUpDown.Name = "startANumericUpDown";
-            this.startANumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.startANumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.startANumericUpDown.TabIndex = 29;
             this.startANumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // continueANumericUpDown
             // 
-            this.continueANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "APulseContinue", true));
+            this.continueANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "APulseContinue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.continueANumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.continueANumericUpDown.Hexadecimal = true;
-            this.continueANumericUpDown.Location = new System.Drawing.Point(249, 283);
+            this.continueANumericUpDown.Location = new System.Drawing.Point(256, 283);
             this.continueANumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.continueANumericUpDown.Name = "continueANumericUpDown";
-            this.continueANumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.continueANumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.continueANumericUpDown.TabIndex = 30;
             this.continueANumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // silenceANumericUpDown
             // 
-            this.silenceANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "SilenceA", true));
+            this.silenceANumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "SilenceA", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.silenceANumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.silenceANumericUpDown.Hexadecimal = true;
-            this.silenceANumericUpDown.Location = new System.Drawing.Point(249, 311);
+            this.silenceANumericUpDown.Location = new System.Drawing.Point(256, 311);
             this.silenceANumericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.silenceANumericUpDown.Name = "silenceANumericUpDown";
-            this.silenceANumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.silenceANumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.silenceANumericUpDown.TabIndex = 31;
             this.silenceANumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // BPulsePhaseNumericUpDown
             // 
-            this.BPulsePhaseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "BPulsePhase", true));
+            this.BPulsePhaseNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "BPulsePhase", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.BPulsePhaseNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BPulsePhaseNumericUpDown.Hexadecimal = true;
-            this.BPulsePhaseNumericUpDown.Location = new System.Drawing.Point(249, 339);
+            this.BPulsePhaseNumericUpDown.Location = new System.Drawing.Point(256, 339);
             this.BPulsePhaseNumericUpDown.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.BPulsePhaseNumericUpDown.Name = "BPulsePhaseNumericUpDown";
-            this.BPulsePhaseNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.BPulsePhaseNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.BPulsePhaseNumericUpDown.TabIndex = 32;
             this.BPulsePhaseNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // continueBNumericUpDown
             // 
-            this.continueBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "BPulseContinue", true));
+            this.continueBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "BPulseContinue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.continueBNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.continueBNumericUpDown.Hexadecimal = true;
-            this.continueBNumericUpDown.Location = new System.Drawing.Point(249, 367);
+            this.continueBNumericUpDown.Location = new System.Drawing.Point(256, 367);
             this.continueBNumericUpDown.Maximum = new decimal(new int[] {
             4095,
             0,
             0,
             0});
             this.continueBNumericUpDown.Name = "continueBNumericUpDown";
-            this.continueBNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.continueBNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.continueBNumericUpDown.TabIndex = 33;
             this.continueBNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // silenceBNumericUpDown
             // 
-            this.silenceBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "SilenceB", true));
+            this.silenceBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "SilenceB", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.silenceBNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.silenceBNumericUpDown.Hexadecimal = true;
-            this.silenceBNumericUpDown.Location = new System.Drawing.Point(249, 395);
+            this.silenceBNumericUpDown.Location = new System.Drawing.Point(256, 395);
             this.silenceBNumericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.silenceBNumericUpDown.Name = "silenceBNumericUpDown";
-            this.silenceBNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.silenceBNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.silenceBNumericUpDown.TabIndex = 34;
             this.silenceBNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // repeatBNumericUpDown
             // 
-            this.repeatBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RepeatB", true));
+            this.repeatBNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RepeatB", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.repeatBNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.repeatBNumericUpDown.Hexadecimal = true;
-            this.repeatBNumericUpDown.Location = new System.Drawing.Point(249, 423);
+            this.repeatBNumericUpDown.Location = new System.Drawing.Point(256, 423);
             this.repeatBNumericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.repeatBNumericUpDown.Name = "repeatBNumericUpDown";
-            this.repeatBNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.repeatBNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.repeatBNumericUpDown.TabIndex = 35;
             this.repeatBNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // echoLengthNumericUpDown
             // 
-            this.echoLengthNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "EchoLength", true));
+            this.echoLengthNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "EchoLength", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.echoLengthNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.echoLengthNumericUpDown.Hexadecimal = true;
-            this.echoLengthNumericUpDown.Location = new System.Drawing.Point(249, 451);
+            this.echoLengthNumericUpDown.Location = new System.Drawing.Point(256, 451);
             this.echoLengthNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.echoLengthNumericUpDown.Name = "echoLengthNumericUpDown";
-            this.echoLengthNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.echoLengthNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.echoLengthNumericUpDown.TabIndex = 36;
             this.echoLengthNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // repeatExpNumericUpDown
             // 
-            this.repeatExpNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RepeatExp", true));
+            this.repeatExpNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "RepeatExp", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.repeatExpNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.repeatExpNumericUpDown.Hexadecimal = true;
-            this.repeatExpNumericUpDown.Location = new System.Drawing.Point(249, 479);
+            this.repeatExpNumericUpDown.Location = new System.Drawing.Point(256, 479);
             this.repeatExpNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.repeatExpNumericUpDown.Name = "repeatExpNumericUpDown";
-            this.repeatExpNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.repeatExpNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.repeatExpNumericUpDown.TabIndex = 37;
             this.repeatExpNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // delayExpNumericUpDown
             // 
-            this.delayExpNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "DelayExp", true));
+            this.delayExpNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "DelayExp", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.delayExpNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.delayExpNumericUpDown.Hexadecimal = true;
-            this.delayExpNumericUpDown.Location = new System.Drawing.Point(249, 507);
+            this.delayExpNumericUpDown.Location = new System.Drawing.Point(256, 507);
             this.delayExpNumericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.delayExpNumericUpDown.Name = "delayExpNumericUpDown";
-            this.delayExpNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.delayExpNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.delayExpNumericUpDown.TabIndex = 38;
             this.delayExpNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // delayRecordNumericUpDown
             // 
-            this.delayRecordNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "DelayRecord", true));
+            this.delayRecordNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "DelayRecord", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.delayRecordNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.delayRecordNumericUpDown.Hexadecimal = true;
-            this.delayRecordNumericUpDown.Location = new System.Drawing.Point(249, 535);
+            this.delayRecordNumericUpDown.Location = new System.Drawing.Point(256, 535);
             this.delayRecordNumericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.delayRecordNumericUpDown.Name = "delayRecordNumericUpDown";
-            this.delayRecordNumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.delayRecordNumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.delayRecordNumericUpDown.TabIndex = 39;
             this.delayRecordNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -725,24 +720,24 @@
             this.label21.Dock = System.Windows.Forms.DockStyle.Top;
             this.label21.Location = new System.Drawing.Point(3, 560);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(240, 27);
+            this.label21.Size = new System.Drawing.Size(247, 27);
             this.label21.TabIndex = 40;
-            this.label21.Text = "Вспомогательное слово:";
+            this.label21.Text = "Вспомогательное слово (Sp):";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // additionalWordnumericUpDown
             // 
-            this.additionalWordnumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "AdditionalWord", true));
+            this.additionalWordnumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.experimentTableBidingSource, "AdditionalWord", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.additionalWordnumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.additionalWordnumericUpDown.Hexadecimal = true;
-            this.additionalWordnumericUpDown.Location = new System.Drawing.Point(249, 563);
+            this.additionalWordnumericUpDown.Location = new System.Drawing.Point(256, 563);
             this.additionalWordnumericUpDown.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.additionalWordnumericUpDown.Name = "additionalWordnumericUpDown";
-            this.additionalWordnumericUpDown.Size = new System.Drawing.Size(116, 20);
+            this.additionalWordnumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.additionalWordnumericUpDown.TabIndex = 41;
             this.additionalWordnumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -752,6 +747,7 @@
             this.isLastCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tableLayoutPanel1.SetColumnSpan(this.isLastCheckBox, 2);
             this.isLastCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.experimentTableBidingSource, "IsLast", true));
+            this.isLastCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.experimentTableBidingSource, "IsLast", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.isLastCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.isLastCheckBox.Location = new System.Drawing.Point(3, 591);
             this.isLastCheckBox.Name = "isLastCheckBox";
@@ -759,6 +755,11 @@
             this.isLastCheckBox.TabIndex = 42;
             this.isLastCheckBox.Text = "Последний эксперимент: ";
             this.isLastCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // experimentTableBidingSource
+            // 
+            this.experimentTableBidingSource.AllowNew = false;
+            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
             // 
             // ExperimentView
             // 
@@ -772,7 +773,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).EndInit();
@@ -793,6 +793,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayExpNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

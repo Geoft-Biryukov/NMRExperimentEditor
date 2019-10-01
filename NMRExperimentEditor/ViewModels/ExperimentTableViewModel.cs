@@ -24,12 +24,7 @@ namespace NMRExperimentEditor.ViewModels
         }
 
         private void OnPropertyChanged(string propertyName)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            throw new NotImplementedException();
-        }
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));       
 
         [DisplayName("Номер эксперимента")]
         [Range(0, 5, ErrorMessage = "Bed")]        
@@ -168,7 +163,7 @@ namespace NMRExperimentEditor.ViewModels
                 if ((byte)value == Experimenent.APulseStart)
                     return;
 
-                Experimenent.Silence1 = (byte)value;
+                Experimenent.APulseStart = (byte)value;
                 OnPropertyChanged(nameof(APulseStart));
             }
         }
