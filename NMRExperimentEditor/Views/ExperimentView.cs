@@ -8,30 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NMRExperimentEditor.Model;
+using NMRExperimentEditor.ViewModels;
 
 namespace NMRExperimentEditor.Views
 {
     public partial class ExperimentView : UserControl
-    {
-        private readonly ExperimentTable table;
-
+    {        
         public ExperimentView()
         {
             InitializeComponent();
-        }
+        }       
 
-        public ExperimentView(ExperimentTable table)
-            : this()
-        {
-            this.table = table ?? throw new ArgumentNullException(nameof(table));            
-
-            var viewModel = new ViewModels.ExperimentTableViewModel(table);
-            experimentTableBidingSource.DataSource = viewModel;                                   
-        }        
-
-        internal void BindViewModel(ViewModels.ExperimentTableViewModel viewModel)
+        internal void BindViewModel(ExperimentTableViewModel viewModel)
         {
             experimentTableBidingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
+            wordsArrayGridView.DataSource = viewModel.WordsArray ?? throw new ArgumentNullException(nameof(viewModel.WordsArray));
         }
 
         private bool isHexadecimal = true;

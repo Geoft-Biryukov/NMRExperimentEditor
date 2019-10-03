@@ -97,6 +97,7 @@
     <Compile Include="Serializers\IExperimentsExporter.cs" />
     <Compile Include="Serializers\IExperimentsSerializer.cs" />
     <Compile Include="Serializers\JsonExperimentsSerializer.cs" />
+    <Compile Include="ViewModels\ArrayData.cs" />
     <Compile Include="ViewModels\ExperimentTableViewModel.cs" />
     <Compile Include="Views\ExperimentView.cs">
       <SubType>UserControl</SubType>
@@ -170,6 +171,7 @@
     </EmbeddedResource>
     <None Include="NMRExperimentEditor_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\NMRExperimentEditor.ViewModels.ArrayData.datasource" />
     <None Include="Properties\DataSources\NMRExperimentEditor.ViewModels.ExperimentTableViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

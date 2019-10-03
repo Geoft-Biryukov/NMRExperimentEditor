@@ -16,13 +16,42 @@ namespace NMRExperimentEditor.ViewModels
     /// </summary>
     public class ExperimentTableViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;        
+        public event PropertyChangedEventHandler PropertyChanged;
+        public BindingList<ArrayData> WordsArray { get; } = new BindingList<ArrayData>();
 
         public ExperimentTableViewModel(ExperimentTable table)
         {
-            Experimenent = table ?? throw new ArgumentNullException(nameof(table));          
+            Experimenent = table ?? throw new ArgumentNullException(nameof(table));
+            InitializeArray();
+            PropertyChanged += ExperimentTableViewModelChanged;
+            UpdateArray();
         }
 
+        private void InitializeArray()
+        {
+            WordsArray.Clear();
+
+            for (int i = 0; i < 16; i++)
+            {
+                var name = $"T{i + 1}.{ExperimentNumber}";
+                WordsArray.Add(new ArrayData(name, 0));
+            }
+        }
+
+        private void ExperimentTableViewModelChanged(object sender, PropertyChangedEventArgs e)
+        {
+            UpdateArray();
+        }
+
+        private void UpdateArray()
+        {
+            var ar = Experimenent.GetArray();
+            for (int i = 0; i < ar.Length; i++)
+            {
+                WordsArray[i].NumericValue = ar[i];
+            }
+        }
+       
         private void OnPropertyChanged(string propertyName)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));       
 

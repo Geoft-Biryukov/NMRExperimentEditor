@@ -49,8 +49,8 @@
             this.downToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.experimentView1 = new NMRExperimentEditor.Views.ExperimentView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.experimentView1 = new NMRExperimentEditor.Views.ExperimentView();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -66,7 +66,7 @@
             this.experimentsListBox.FormattingEnabled = true;
             this.experimentsListBox.Location = new System.Drawing.Point(0, 0);
             this.experimentsListBox.Name = "experimentsListBox";
-            this.experimentsListBox.Size = new System.Drawing.Size(181, 606);
+            this.experimentsListBox.Size = new System.Drawing.Size(217, 606);
             this.experimentsListBox.TabIndex = 2;
             this.experimentsListBox.SelectedIndexChanged += new System.EventHandler(this.experimentsListBox_SelectedIndexChanged);
             // 
@@ -78,7 +78,7 @@
             this.настройкиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(574, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(847, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -172,7 +172,7 @@
             this.copyToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(574, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(847, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -239,19 +239,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.experimentsListBox);
-            this.splitContainer1.Size = new System.Drawing.Size(568, 606);
-            this.splitContainer1.SplitterDistance = 383;
+            this.splitContainer1.Size = new System.Drawing.Size(841, 606);
+            this.splitContainer1.SplitterDistance = 620;
             this.splitContainer1.TabIndex = 3;
-            // 
-            // experimentView1
-            // 
-            this.experimentView1.AutoScroll = true;
-            this.experimentView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.experimentView1.IsHexadecimal = true;
-            this.experimentView1.Location = new System.Drawing.Point(0, 0);
-            this.experimentView1.Name = "experimentView1";
-            this.experimentView1.Size = new System.Drawing.Size(383, 606);
-            this.experimentView1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -260,14 +250,24 @@
             this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
-            this.panel1.Size = new System.Drawing.Size(574, 612);
+            this.panel1.Size = new System.Drawing.Size(847, 612);
             this.panel1.TabIndex = 7;
+            // 
+            // experimentView1
+            // 
+            this.experimentView1.AutoScroll = true;
+            this.experimentView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.experimentView1.IsHexadecimal = true;
+            this.experimentView1.Location = new System.Drawing.Point(0, 0);
+            this.experimentView1.Name = "experimentView1";
+            this.experimentView1.Size = new System.Drawing.Size(620, 606);
+            this.experimentView1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 661);
+            this.ClientSize = new System.Drawing.Size(847, 661);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
