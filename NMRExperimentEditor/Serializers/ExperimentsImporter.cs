@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NMRExperimentEditor.Serializers
 {
-    internal class ExperementsImporter
+    internal class ExperimentsImporter
     {
         public bool Import(Stream stream, out IEnumerable<ExperimentTable> experiments)
         {

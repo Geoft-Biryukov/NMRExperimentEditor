@@ -174,7 +174,7 @@ namespace NMRExperimentEditor.Presenters
         internal void Export()
         {
             var fileName = view.GetSaveExperimentsFileName(filterArr);
-            var exporter = new ExperementsExporter();
+            var exporter = new ExperimentsExporter();
 
             using (var stream = new FileStream(fileName, FileMode.Create,FileAccess.Write))
             {                

@@ -92,8 +92,8 @@
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializers\ExperementsExporter.cs" />
-    <Compile Include="Serializers\ExperementsImporter.cs" />
+    <Compile Include="Serializers\ExperimentsExporter.cs" />
+    <Compile Include="Serializers\ExperimentsImporter.cs" />
     <Compile Include="Serializers\IExperimentsExporter.cs" />
     <Compile Include="Serializers\IExperimentsSerializer.cs" />
     <Compile Include="Serializers\JsonExperimentsSerializer.cs" />

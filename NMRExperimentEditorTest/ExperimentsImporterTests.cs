@@ -6,14 +6,14 @@ using NMRExperimentEditor.Serializers;
 namespace NMRExperimentEditorTest
 {
     [TestClass]
-    public class ExperementsImporterTests
+    public class ExperimentsImporterTests
     {
         [TestMethod]
-        public void ExperementsImporterTest()
+        public void ExperimentsImporterTest()
         {
             var stream = GenerateStream();
 
-            var importer = new ExperementsImporter();
+            var importer = new ExperimentsImporter();
 
             var retRes = importer.Import(stream, out var experiments);
         }
