@@ -20,7 +20,7 @@ namespace NMRExperimentEditorTest
                 NoiseLength = 0x23,
                 Silence2 = 0x34,
                 PhaseOfAPulse = 0x0b,
-                APulseStart = 0x09,
+                APulseStart = 0x06,
                 APulseContinue = 0x56,
                 SilenceA = 0x6789,
                 BPulsePhase = 0x0c,

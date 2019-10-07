@@ -173,10 +173,12 @@ namespace NMRExperimentEditor.Model
             words[3] = freqAndRel[2];
 
             words[4] = ToUshort(Silence1, NoiseLength);
-            words[5] = ToUshort(CalibrationsNumber, Silence2); 
-            words[6] = ToUshort(Join4x4(PhaseOfAPulse, APulseStart), APulseContinue);
+            words[5] = ToUshort(CalibrationsNumber, Silence2);
+            //words[6] = ToUshort(Join4x4(PhaseOfAPulse, APulseStart), APulseContinue);
+            words[6] = ToUshort(Join5x3(PhaseOfAPulse, APulseStart), APulseContinue);
             words[7] = SilenceA;
-            words[8] = Join4x12(BPulsePhase, BPulseContinue);
+            //words[8] = Join4x12(BPulsePhase, BPulseContinue);
+            words[8] = Join5x11(BPulsePhase, BPulseContinue);
             words[9] = SilenceB;
             words[10] = RepeatB;
             words[11] = ToUshort(EchoLength, RepeatExp);
@@ -214,9 +216,21 @@ namespace NMRExperimentEditor.Model
 
         public static byte Join4x4(byte upper, byte lower) 
             => (byte)(upper << 4 | (lower & 0x0F));
-        
+
+
+        private const byte maxValue3Bits = 0x7;
+
+        private static byte Join5x3(byte upper, byte lower)
+            => (byte)((upper << 3) & 0xF8 | (lower & maxValue3Bits));
+
         private static ushort  Join4x12(byte upper, ushort lower) 
             => (ushort)(((upper << 12) & 0xF000) | (lower & 0x0FFF));
+
+
+        private const ushort maxValue11bits = 0x7FF;
+
+        private static ushort Join5x11(byte upper, ushort lower)
+           => (ushort)((upper << 11) | (lower & maxValue11bits));
         #endregion
 
         #region Set array
@@ -247,14 +261,16 @@ namespace NMRExperimentEditor.Model
             Silence2 = silence2;
 
             Decompose(words[6], out byte upper, out byte lower);
-            Decompose(upper, out byte aPhase, out byte aStart);
+            //Decompose(upper, out byte aPhase, out byte aStart);
+            Decompose5x3(upper, out byte aPhase, out byte aStart);
             PhaseOfAPulse = aPhase;
             APulseStart = aStart;
             APulseContinue = lower;
 
             SilenceA = words[7];
 
-            Decompose4x12(words[8], out byte bPhase, out ushort bContinue);
+            //Decompose4x12(words[8], out byte bPhase, out ushort bContinue);
+            Decompose5x11(words[8], out byte bPhase, out ushort bContinue);
             BPulsePhase = bPhase;
             BPulseContinue = bContinue;
 
@@ -291,10 +307,23 @@ namespace NMRExperimentEditor.Model
             lower = (byte)(bits & 0x0F);
         }
 
+        private const byte maxValue5bits = 0x1F;
+        private static void Decompose5x3(byte bits, out byte upper, out byte lower)
+        {
+            upper = (byte)((bits >> 3) & maxValue5bits);
+            lower = (byte)(bits & maxValue3Bits);
+        }
+
         private static void Decompose4x12(ushort word, out byte upper, out ushort lower)
         {
             upper = (byte)((word >> 12) & 0x000F);
             lower = (ushort)(word & 0x0FFF);
+        }
+
+        private static void Decompose5x11(ushort word, out byte upper, out ushort lower)
+        {
+            upper = (byte)((word >> 11) & maxValue5bits);
+            lower = (ushort)(word & maxValue11bits);
         }
 
         public object Clone()

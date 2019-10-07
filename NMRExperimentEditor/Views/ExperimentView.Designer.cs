@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.experimentNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.frequencyIndexNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,12 +77,12 @@
             this.additionalWordnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.isLastCheckBox = new System.Windows.Forms.CheckBox();
             this.wordsArrayGridView = new System.Windows.Forms.DataGridView();
-            this.experimentTableBidingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.arrayDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arrayDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).BeginInit();
@@ -103,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wordsArrayGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arrayDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +113,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.12048F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.87952F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 245F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.experimentNumberNumericUpDown, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -208,9 +208,14 @@
             this.experimentNumberNumericUpDown.Location = new System.Drawing.Point(258, 3);
             this.experimentNumberNumericUpDown.Name = "experimentNumberNumericUpDown";
             this.experimentNumberNumericUpDown.ReadOnly = true;
-            this.experimentNumberNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.experimentNumberNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.experimentNumberNumericUpDown.TabIndex = 1;
             this.experimentNumberNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // experimentTableBidingSource
+            // 
+            this.experimentTableBidingSource.AllowNew = false;
+            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
             // 
             // label2
             // 
@@ -235,7 +240,7 @@
             0,
             0});
             this.frequencyIndexNumericUpDown.Name = "frequencyIndexNumericUpDown";
-            this.frequencyIndexNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.frequencyIndexNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.frequencyIndexNumericUpDown.TabIndex = 3;
             this.frequencyIndexNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -262,7 +267,7 @@
             0,
             0});
             this.phaseNumericUpDown.Name = "phaseNumericUpDown";
-            this.phaseNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.phaseNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.phaseNumericUpDown.TabIndex = 5;
             this.phaseNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -289,7 +294,7 @@
             0,
             0});
             this.relayCodeNumericUpDown.Name = "relayCodeNumericUpDown";
-            this.relayCodeNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.relayCodeNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.relayCodeNumericUpDown.TabIndex = 7;
             this.relayCodeNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -316,7 +321,7 @@
             0,
             0});
             this.silence1NumericUpDown.Name = "silence1NumericUpDown";
-            this.silence1NumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.silence1NumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.silence1NumericUpDown.TabIndex = 9;
             this.silence1NumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -343,7 +348,7 @@
             0,
             0});
             this.noiseLengthNumericUpDown.Name = "noiseLengthNumericUpDown";
-            this.noiseLengthNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.noiseLengthNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.noiseLengthNumericUpDown.TabIndex = 11;
             this.noiseLengthNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -370,7 +375,7 @@
             0,
             0});
             this.calibrationsCountNumericUpDown.Name = "calibrationsCountNumericUpDown";
-            this.calibrationsCountNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.calibrationsCountNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.calibrationsCountNumericUpDown.TabIndex = 13;
             this.calibrationsCountNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -397,7 +402,7 @@
             0,
             0});
             this.silence2NumericUpDown.Name = "silence2NumericUpDown";
-            this.silence2NumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.silence2NumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.silence2NumericUpDown.TabIndex = 15;
             this.silence2NumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -419,12 +424,12 @@
             this.PhaseOfAPulseNumericUpDown.Hexadecimal = true;
             this.PhaseOfAPulseNumericUpDown.Location = new System.Drawing.Point(258, 227);
             this.PhaseOfAPulseNumericUpDown.Maximum = new decimal(new int[] {
-            15,
+            31,
             0,
             0,
             0});
             this.PhaseOfAPulseNumericUpDown.Name = "PhaseOfAPulseNumericUpDown";
-            this.PhaseOfAPulseNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.PhaseOfAPulseNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.PhaseOfAPulseNumericUpDown.TabIndex = 17;
             this.PhaseOfAPulseNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -556,12 +561,12 @@
             this.startANumericUpDown.Hexadecimal = true;
             this.startANumericUpDown.Location = new System.Drawing.Point(258, 255);
             this.startANumericUpDown.Maximum = new decimal(new int[] {
-            15,
+            7,
             0,
             0,
             0});
             this.startANumericUpDown.Name = "startANumericUpDown";
-            this.startANumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.startANumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.startANumericUpDown.TabIndex = 29;
             this.startANumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -577,7 +582,7 @@
             0,
             0});
             this.continueANumericUpDown.Name = "continueANumericUpDown";
-            this.continueANumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.continueANumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.continueANumericUpDown.TabIndex = 30;
             this.continueANumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -593,7 +598,7 @@
             0,
             0});
             this.silenceANumericUpDown.Name = "silenceANumericUpDown";
-            this.silenceANumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.silenceANumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.silenceANumericUpDown.TabIndex = 31;
             this.silenceANumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -604,12 +609,12 @@
             this.BPulsePhaseNumericUpDown.Hexadecimal = true;
             this.BPulsePhaseNumericUpDown.Location = new System.Drawing.Point(258, 339);
             this.BPulsePhaseNumericUpDown.Maximum = new decimal(new int[] {
-            15,
+            31,
             0,
             0,
             0});
             this.BPulsePhaseNumericUpDown.Name = "BPulsePhaseNumericUpDown";
-            this.BPulsePhaseNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.BPulsePhaseNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.BPulsePhaseNumericUpDown.TabIndex = 32;
             this.BPulsePhaseNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -620,12 +625,12 @@
             this.continueBNumericUpDown.Hexadecimal = true;
             this.continueBNumericUpDown.Location = new System.Drawing.Point(258, 367);
             this.continueBNumericUpDown.Maximum = new decimal(new int[] {
-            4095,
+            2047,
             0,
             0,
             0});
             this.continueBNumericUpDown.Name = "continueBNumericUpDown";
-            this.continueBNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.continueBNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.continueBNumericUpDown.TabIndex = 33;
             this.continueBNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -641,7 +646,7 @@
             0,
             0});
             this.silenceBNumericUpDown.Name = "silenceBNumericUpDown";
-            this.silenceBNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.silenceBNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.silenceBNumericUpDown.TabIndex = 34;
             this.silenceBNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -657,7 +662,7 @@
             0,
             0});
             this.repeatBNumericUpDown.Name = "repeatBNumericUpDown";
-            this.repeatBNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.repeatBNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.repeatBNumericUpDown.TabIndex = 35;
             this.repeatBNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -673,7 +678,7 @@
             0,
             0});
             this.echoLengthNumericUpDown.Name = "echoLengthNumericUpDown";
-            this.echoLengthNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.echoLengthNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.echoLengthNumericUpDown.TabIndex = 36;
             this.echoLengthNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -689,7 +694,7 @@
             0,
             0});
             this.repeatExpNumericUpDown.Name = "repeatExpNumericUpDown";
-            this.repeatExpNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.repeatExpNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.repeatExpNumericUpDown.TabIndex = 37;
             this.repeatExpNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -705,7 +710,7 @@
             0,
             0});
             this.delayExpNumericUpDown.Name = "delayExpNumericUpDown";
-            this.delayExpNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.delayExpNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.delayExpNumericUpDown.TabIndex = 38;
             this.delayExpNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -721,7 +726,7 @@
             0,
             0});
             this.delayRecordNumericUpDown.Name = "delayRecordNumericUpDown";
-            this.delayRecordNumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.delayRecordNumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.delayRecordNumericUpDown.TabIndex = 39;
             this.delayRecordNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -747,7 +752,7 @@
             0,
             0});
             this.additionalWordnumericUpDown.Name = "additionalWordnumericUpDown";
-            this.additionalWordnumericUpDown.Size = new System.Drawing.Size(103, 20);
+            this.additionalWordnumericUpDown.Size = new System.Drawing.Size(102, 20);
             this.additionalWordnumericUpDown.TabIndex = 41;
             this.additionalWordnumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -761,7 +766,7 @@
             this.isLastCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.isLastCheckBox.Location = new System.Drawing.Point(3, 591);
             this.isLastCheckBox.Name = "isLastCheckBox";
-            this.isLastCheckBox.Size = new System.Drawing.Size(358, 17);
+            this.isLastCheckBox.Size = new System.Drawing.Size(357, 17);
             this.isLastCheckBox.TabIndex = 42;
             this.isLastCheckBox.Text = "Последний эксперимент: ";
             this.isLastCheckBox.UseVisualStyleBackColor = true;
@@ -775,37 +780,33 @@
             this.valueDataGridViewTextBoxColumn});
             this.wordsArrayGridView.DataSource = this.arrayDataBindingSource;
             this.wordsArrayGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wordsArrayGridView.Location = new System.Drawing.Point(367, 3);
+            this.wordsArrayGridView.Location = new System.Drawing.Point(366, 3);
             this.wordsArrayGridView.Name = "wordsArrayGridView";
             this.tableLayoutPanel1.SetRowSpan(this.wordsArrayGridView, 22);
-            this.wordsArrayGridView.Size = new System.Drawing.Size(239, 620);
+            this.wordsArrayGridView.Size = new System.Drawing.Size(240, 620);
             this.wordsArrayGridView.TabIndex = 43;
-            // 
-            // experimentTableBidingSource
-            // 
-            this.experimentTableBidingSource.AllowNew = false;
-            this.experimentTableBidingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ExperimentTableViewModel);
-            // 
-            // arrayDataBindingSource
-            // 
-            this.arrayDataBindingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ArrayData);
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.nameDataGridViewTextBoxColumn.HeaderText = "Слово";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // valueDataGridViewTextBoxColumn
             // 
             this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.valueDataGridViewTextBoxColumn.HeaderText = "Величина, hex";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // arrayDataBindingSource
+            // 
+            this.arrayDataBindingSource.DataSource = typeof(NMRExperimentEditor.ViewModels.ArrayData);
             // 
             // ExperimentView
             // 
@@ -819,6 +820,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.experimentNumberNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyIndexNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phaseNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCodeNumericUpDown)).EndInit();
@@ -840,7 +842,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.delayRecordNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalWordnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wordsArrayGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experimentTableBidingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arrayDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
